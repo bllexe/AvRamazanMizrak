@@ -35,10 +35,10 @@ export default async function AdminDashboardPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shrink-0 pb-6 border-b border-stone-gray/40">
+      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shrink-0 pb-6 border-b border-stone-gray/40 dark:border-slate-700/40">
         <div>
-          <h2 className="font-headline-md text-2xl text-legal-navy font-bold">Hoş Geldiniz</h2>
-          <p className="text-sm text-on-surface-variant">İşte bugün neler olduğu hakkında bir özet.</p>
+          <h2 className="font-headline-md text-2xl text-legal-navy dark:text-slate-100 font-bold">Hoş Geldiniz</h2>
+          <p className="text-sm text-on-surface-variant dark:text-slate-400">İşte bugün neler olduğu hakkında bir özet.</p>
         </div>
         <div className="flex items-center gap-4">
           <Link
@@ -54,25 +54,25 @@ export default async function AdminDashboardPage() {
       {/* KPI Cards Grid */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Card 1 */}
-        <div className="bg-white p-6 border border-stone-gray/60 rounded-xl shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+        <div className="bg-white dark:bg-slate-800 p-6 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
           <div className="flex items-start justify-between mb-4">
-            <div className="w-12 h-12 bg-[#F8F7F4] flex items-center justify-center rounded-lg text-legal-navy">
+            <div className="w-12 h-12 bg-[#F8F7F4] dark:bg-slate-900/50 flex items-center justify-center rounded-lg text-legal-navy dark:text-slate-100">
               <span className="material-symbols-outlined">group</span>
             </div>
             <span className="text-green-600 text-[12px] font-bold flex items-center bg-green-50 px-2 py-0.5 rounded">
               <span className="material-symbols-outlined text-[16px] mr-1">trending_up</span> Canlı
             </span>
           </div>
-          <h3 className="text-on-surface-variant text-xs font-bold uppercase tracking-wider">
+          <h3 className="text-on-surface-variant dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
             Toplam Okunma
           </h3>
-          <p className="font-headline-md text-3xl text-legal-navy font-bold mt-1">{totalViews}</p>
+          <p className="font-headline-md text-3xl text-legal-navy dark:text-slate-100 font-bold mt-1">{totalViews}</p>
         </div>
 
         {/* Card 2 */}
-        <div className="bg-white p-6 border border-stone-gray/60 rounded-xl shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+        <div className="bg-white dark:bg-slate-800 p-6 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
           <div className="flex items-start justify-between mb-4">
-            <div className="w-12 h-12 bg-[#F8F7F4] flex items-center justify-center rounded-lg text-prestige-gold">
+            <div className="w-12 h-12 bg-[#F8F7F4] dark:bg-slate-900/50 flex items-center justify-center rounded-lg text-prestige-gold">
               <span className="material-symbols-outlined">mail</span>
             </div>
             {newMessagesCount > 0 ? (
@@ -80,31 +80,31 @@ export default async function AdminDashboardPage() {
                 Yeni Mesaj
               </span>
             ) : (
-              <span className="text-on-surface-variant text-[12px] font-medium">Temiz</span>
+              <span className="text-on-surface-variant dark:text-slate-400 text-[12px] font-medium">Temiz</span>
             )}
           </div>
-          <h3 className="text-on-surface-variant text-xs font-bold uppercase tracking-wider">
+          <h3 className="text-on-surface-variant dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
             Bekleyen Mesajlar
           </h3>
-          <p className="font-headline-md text-3xl text-legal-navy font-bold mt-1">
+          <p className="font-headline-md text-3xl text-legal-navy dark:text-slate-100 font-bold mt-1">
             {newMessagesCount}
           </p>
         </div>
 
         {/* Card 3 */}
-        <div className="bg-white p-6 border border-stone-gray/60 rounded-xl shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+        <div className="bg-white dark:bg-slate-800 p-6 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
           <div className="flex items-start justify-between mb-4">
-            <div className="w-12 h-12 bg-[#F8F7F4] flex items-center justify-center rounded-lg text-legal-navy">
+            <div className="w-12 h-12 bg-[#F8F7F4] dark:bg-slate-900/50 flex items-center justify-center rounded-lg text-legal-navy dark:text-slate-100">
               <span className="material-symbols-outlined">article</span>
             </div>
-            <span className="text-on-surface-variant text-[12px] font-semibold bg-stone-100 px-2 py-0.5 rounded">
+            <span className="text-on-surface-variant dark:text-slate-400 text-[12px] font-semibold bg-stone-100 dark:bg-slate-700 px-2 py-0.5 rounded">
               Toplam
             </span>
           </div>
-          <h3 className="text-on-surface-variant text-xs font-bold uppercase tracking-wider">
+          <h3 className="text-on-surface-variant dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
             Yayındaki Makaleler
           </h3>
-          <p className="font-headline-md text-3xl text-legal-navy font-bold mt-1">
+          <p className="font-headline-md text-3xl text-legal-navy dark:text-slate-100 font-bold mt-1">
             {publishedCount}
           </p>
         </div>
@@ -113,10 +113,10 @@ export default async function AdminDashboardPage() {
       {/* Middle Section: Chart & Recent Activity */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Visitor Chart (2/3 width) */}
-        <div className="lg:col-span-2 bg-white border border-stone-gray/60 rounded-xl p-6 shadow-sm flex flex-col justify-between">
+        <div className="lg:col-span-2 bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-6 shadow-sm flex flex-col justify-between">
           <div className="mb-6">
-            <h3 className="font-headline-sm text-lg text-legal-navy font-bold">Ziyaretçi Grafiği</h3>
-            <p className="text-xs text-on-surface-variant">
+            <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">Ziyaretçi Grafiği</h3>
+            <p className="text-xs text-on-surface-variant dark:text-slate-400">
               Son 7 günlük trafik analizi (Sayfa Görüntüleme)
             </p>
           </div>
@@ -148,7 +148,7 @@ export default async function AdminDashboardPage() {
             </svg>
           </div>
 
-          <div className="flex justify-between mt-4 text-[11px] text-on-surface-variant font-semibold border-t border-stone-gray/20 pt-4">
+          <div className="flex justify-between mt-4 text-[11px] text-on-surface-variant dark:text-slate-400 font-semibold border-t border-stone-gray/20 dark:border-slate-700/20 pt-4">
             {chartData.map((d: any, idx: number) => (
               <span key={idx}>
                 {d.day} ({d.views})
@@ -158,9 +158,9 @@ export default async function AdminDashboardPage() {
         </div>
 
         {/* Recent Messages Summary (1/3 width) */}
-        <div className="bg-white border border-stone-gray/60 rounded-xl p-6 shadow-sm flex flex-col max-h-[360px]">
+        <div className="bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-6 shadow-sm flex flex-col max-h-[360px]">
           <div className="flex items-center justify-between mb-6 shrink-0">
-            <h3 className="font-headline-sm text-lg text-legal-navy font-bold">Son Mesajlar</h3>
+            <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">Son Mesajlar</h3>
             <Link
               className="text-prestige-gold text-sm font-semibold hover:underline"
               href="/admin/messages"
@@ -173,15 +173,15 @@ export default async function AdminDashboardPage() {
               recentMessages.map((msg: any) => (
                 <div
                   key={msg.id}
-                  className="flex items-start gap-3 border-b border-stone-gray/40 pb-3 last:border-0 last:pb-0"
+                  className="flex items-start gap-3 border-b border-stone-gray/40 dark:border-slate-700/40 pb-3 last:border-0 last:pb-0"
                 >
-                  <div className="w-9 h-9 bg-[#F8F7F4] rounded-full flex-shrink-0 flex items-center justify-center font-bold text-legal-navy text-xs uppercase border border-stone-gray/40">
+                  <div className="w-9 h-9 bg-[#F8F7F4] dark:bg-slate-900/50 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-legal-navy dark:text-slate-100 text-xs uppercase border border-stone-gray/40 dark:border-slate-700/40">
                     {(msg.name || 'AA').substring(0, 2)}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-baseline">
-                      <p className="text-xs font-bold text-legal-navy truncate">{msg.name}</p>
-                      <span className="text-[9px] text-on-surface-variant shrink-0">
+                      <p className="text-xs font-bold text-legal-navy dark:text-slate-100 truncate">{msg.name}</p>
+                      <span className="text-[9px] text-on-surface-variant dark:text-slate-400 shrink-0">
                         {new Date(msg.submitted_at).toLocaleDateString('tr-TR', {
                           hour: '2-digit',
                           minute: '2-digit',
@@ -191,14 +191,14 @@ export default async function AdminDashboardPage() {
                     <p className="text-[10px] text-prestige-gold font-bold truncate mt-0.5">
                       {msg.subject}
                     </p>
-                    <p className="text-xs text-on-surface-variant line-clamp-2 mt-1">
+                    <p className="text-xs text-on-surface-variant dark:text-slate-400 line-clamp-2 mt-1">
                       {msg.message}
                     </p>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="text-center py-12 text-on-surface-variant text-sm">
+              <div className="text-center py-12 text-on-surface-variant dark:text-slate-400 text-sm">
                 Mesaj bulunmamaktadır.
               </div>
             )}
@@ -207,12 +207,12 @@ export default async function AdminDashboardPage() {
       </section>
 
       {/* Bottom Table Section */}
-      <section className="bg-white border border-stone-gray/60 rounded-xl shadow-sm overflow-hidden">
-        <div className="p-6 border-b border-stone-gray/40 flex justify-between items-center bg-[#FAF9F6]">
-          <h3 className="font-headline-sm text-lg text-legal-navy font-bold">Son Eklenen Makaleler</h3>
+      <section className="bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl shadow-sm overflow-hidden">
+        <div className="p-6 border-b border-stone-gray/40 dark:border-slate-700/40 flex justify-between items-center bg-[#FAF9F6] dark:bg-slate-900/80">
+          <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">Son Eklenen Makaleler</h3>
           <Link
             href="/admin/articles"
-            className="border border-stone-gray/80 px-4 py-2 rounded-lg text-xs font-bold text-legal-navy hover:bg-stone-50 transition-colors"
+            className="border border-stone-gray/80 px-4 py-2 rounded-lg text-xs font-bold text-legal-navy dark:text-slate-100 hover:bg-stone-50 dark:hover:bg-slate-700/50 dark:bg-slate-900/50 transition-colors"
           >
             Tümünü Yönet
           </Link>
@@ -220,7 +220,7 @@ export default async function AdminDashboardPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="bg-stone-50 text-on-surface-variant text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40">
+              <tr className="bg-stone-50 dark:bg-slate-900/50 text-on-surface-variant dark:text-slate-400 text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40 dark:border-slate-700/40">
                 <th className="px-6 py-4">Başlık</th>
                 <th className="px-6 py-4">Kategori</th>
                 <th className="px-6 py-4">Oluşturma Tarihi</th>
@@ -228,22 +228,22 @@ export default async function AdminDashboardPage() {
                 <th className="px-6 py-4">Durum</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-stone-gray/30 text-sm">
+            <tbody className="divide-y divide-stone-gray/30 dark:divide-slate-700/50 text-sm">
               {recentArticles.length > 0 ? (
                 recentArticles.map((art: any) => (
-                  <tr key={art.id} className="hover:bg-stone-50 transition-colors">
+                  <tr key={art.id} className="hover:bg-stone-50 dark:hover:bg-slate-700/50 dark:bg-slate-900/50 transition-colors">
                     <td className="px-6 py-4">
-                      <div className="font-bold text-legal-navy">{art.title}</div>
+                      <div className="font-bold text-legal-navy dark:text-slate-100">{art.title}</div>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="bg-[#F8F7F4] border border-stone-gray/60 px-2 py-1 rounded text-[10px] font-bold text-legal-navy uppercase">
+                      <span className="bg-[#F8F7F4] dark:bg-slate-900/50 border border-stone-gray/60 dark:border-slate-700/60 px-2 py-1 rounded text-[10px] font-bold text-legal-navy dark:text-slate-100 uppercase">
                         {art.categoryName}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-xs text-on-surface-variant font-medium">
+                    <td className="px-6 py-4 text-xs text-on-surface-variant dark:text-slate-400 font-medium">
                       {new Date(art.created_at).toLocaleDateString('tr-TR')}
                     </td>
-                    <td className="px-6 py-4 text-xs text-on-surface-variant font-medium">
+                    <td className="px-6 py-4 text-xs text-on-surface-variant dark:text-slate-400 font-medium">
                       {art.view_count || 0}
                     </td>
                     <td className="px-6 py-4">
@@ -263,7 +263,7 @@ export default async function AdminDashboardPage() {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} className="text-center py-8 text-on-surface-variant text-sm">
+                  <td colSpan={5} className="text-center py-8 text-on-surface-variant dark:text-slate-400 text-sm">
                     Makale bulunmamaktadır.
                   </td>
                 </tr>

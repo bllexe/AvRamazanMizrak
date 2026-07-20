@@ -144,9 +144,9 @@ export default function AdminCategoriesPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <header className="pb-6 border-b border-stone-gray/40 shrink-0">
-        <h2 className="font-headline-md text-2xl text-legal-navy font-bold">Makale Kategorileri</h2>
-        <p className="text-sm text-on-surface-variant">
+      <header className="pb-6 border-b border-stone-gray/40 dark:border-slate-700/40 shrink-0">
+        <h2 className="font-headline-md text-2xl text-legal-navy dark:text-slate-100 font-bold">Makale Kategorileri</h2>
+        <p className="text-sm text-on-surface-variant dark:text-slate-400">
           Makalelerinizi gruplandırmak için kategorileri yönetin.
         </p>
       </header>
@@ -154,11 +154,11 @@ export default function AdminCategoriesPage() {
       {/* Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {/* Categories List (2/3 width) */}
-        <div className="lg:col-span-2 bg-white border border-stone-gray/60 rounded-xl shadow-sm overflow-hidden">
+        <div className="lg:col-span-2 bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-stone-50 text-on-surface-variant text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40">
+                <tr className="bg-stone-50 dark:bg-slate-900/50 text-on-surface-variant dark:text-slate-400 text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40 dark:border-slate-700/40">
                   <th className="px-6 py-4">Sıra</th>
                   <th className="px-6 py-4">Kategori Adı</th>
                   <th className="px-6 py-4">Slug / URL</th>
@@ -166,31 +166,31 @@ export default function AdminCategoriesPage() {
                   <th className="px-6 py-4 text-right">İşlemler</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-gray/30 text-sm">
+              <tbody className="divide-y divide-stone-gray/30 dark:divide-slate-700/50 text-sm">
                 {isLoading ? (
                   <tr>
-                    <td colSpan={5} className="text-center py-12 text-on-surface-variant">
+                    <td colSpan={5} className="text-center py-12 text-on-surface-variant dark:text-slate-400">
                       Kategoriler yükleniyor...
                     </td>
                   </tr>
                 ) : categories.length > 0 ? (
                   categories.map((cat) => (
-                    <tr key={cat.id} className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-4 text-xs font-bold text-legal-navy">
+                    <tr key={cat.id} className="hover:bg-stone-50 dark:hover:bg-slate-700/50 dark:bg-slate-900/50 transition-colors">
+                      <td className="px-6 py-4 text-xs font-bold text-legal-navy dark:text-slate-100">
                         {cat.order_index}
                       </td>
-                      <td className="px-6 py-4 font-bold text-legal-navy">{cat.name}</td>
-                      <td className="px-6 py-4 text-xs text-on-surface-variant font-mono">
+                      <td className="px-6 py-4 font-bold text-legal-navy dark:text-slate-100">{cat.name}</td>
+                      <td className="px-6 py-4 text-xs text-on-surface-variant dark:text-slate-400 font-mono">
                         {cat.slug}
                       </td>
-                      <td className="px-6 py-4 text-xs text-on-surface-variant max-w-xs truncate">
+                      <td className="px-6 py-4 text-xs text-on-surface-variant dark:text-slate-400 max-w-xs truncate">
                         {cat.description || '-'}
                       </td>
                       <td className="px-6 py-4 text-right">
                         <div className="flex items-center justify-end gap-3">
                           <button
                             onClick={() => handleEdit(cat)}
-                            className="text-legal-navy hover:text-prestige-gold transition-colors flex items-center"
+                            className="text-legal-navy dark:text-slate-100 hover:text-prestige-gold transition-colors flex items-center"
                             title="Düzenle"
                           >
                             <span className="material-symbols-outlined text-[20px]">edit</span>
@@ -208,7 +208,7 @@ export default function AdminCategoriesPage() {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={5} className="text-center py-12 text-on-surface-variant">
+                    <td colSpan={5} className="text-center py-12 text-on-surface-variant dark:text-slate-400">
                       Kategori bulunmamaktadır.
                     </td>
                   </tr>
@@ -219,23 +219,23 @@ export default function AdminCategoriesPage() {
         </div>
 
         {/* Create / Edit Form Card (1/3 width) */}
-        <div className="bg-white border border-stone-gray/60 rounded-xl p-6 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-6 shadow-sm space-y-6">
           <div>
-            <h3 className="font-headline-sm text-lg text-legal-navy font-bold">
+            <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">
               {formMode === 'create' ? 'Yeni Kategori Ekle' : 'Kategoriyi Düzenle'}
             </h3>
-            <p className="text-xs text-on-surface-variant mt-1">
+            <p className="text-xs text-on-surface-variant dark:text-slate-400 mt-1">
               Gerekli alanları doldurarak kaydediniz.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="name">
+              <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="name">
                 KATEGORİ ADI
               </label>
               <input
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
                 id="name"
                 type="text"
                 placeholder="Örn: Ceza Hukuku"
@@ -246,11 +246,11 @@ export default function AdminCategoriesPage() {
             </div>
 
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="slug">
+              <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="slug">
                 SLUG / URL (OPSİYONEL)
               </label>
               <input
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
                 id="slug"
                 type="text"
                 placeholder="Orn: ceza-hukuku"
@@ -260,11 +260,11 @@ export default function AdminCategoriesPage() {
             </div>
 
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="order_index">
+              <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="order_index">
                 SIRA NO
               </label>
               <input
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
                 id="order_index"
                 type="number"
                 required
@@ -274,11 +274,11 @@ export default function AdminCategoriesPage() {
             </div>
 
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="description">
+              <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="description">
                 AÇIKLAMA (OPSİYONEL)
               </label>
               <textarea
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
                 id="description"
                 rows={3}
                 placeholder="Kategori açıklaması..."
@@ -299,7 +299,7 @@ export default function AdminCategoriesPage() {
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="w-full py-2 bg-[#E2E8F0] text-legal-navy font-bold rounded-lg hover:bg-opacity-90 transition-all text-xs"
+                  className="w-full py-2 bg-[#E2E8F0] text-legal-navy dark:text-slate-100 font-bold rounded-lg hover:bg-opacity-90 transition-all text-xs"
                 >
                   İptal Et
                 </button>
@@ -319,15 +319,15 @@ export default function AdminCategoriesPage() {
           />
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-xl shadow-xl border border-stone-gray max-w-sm w-full mx-4 overflow-hidden z-10">
+          <div className="relative bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-stone-gray dark:border-slate-700 max-w-sm w-full mx-4 overflow-hidden z-10">
             <div className="p-6">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0">
                   <span className="material-symbols-outlined text-[24px]">warning</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-legal-navy text-sm">Kategoriyi Sil</h4>
-                  <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                  <h4 className="font-bold text-legal-navy dark:text-slate-100 text-sm">Kategoriyi Sil</h4>
+                  <p className="text-xs text-on-surface-variant dark:text-slate-400 mt-1.5 leading-relaxed">
                     Bu kategoriyi silmek istediğinize emin misiniz? Kategorideki makaleler
                     kategorisiz kalacaktır. Bu işlem geri alınamaz.
                   </p>
@@ -336,7 +336,7 @@ export default function AdminCategoriesPage() {
               <div className="flex justify-end gap-3">
                 <button
                   onClick={() => setDeleteModal({ isOpen: false, categoryId: null })}
-                  className="px-4 py-2 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy font-semibold text-xs rounded transition-colors"
+                  className="px-4 py-2 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy dark:text-slate-100 font-semibold text-xs rounded transition-colors"
                 >
                   İptal
                 </button>

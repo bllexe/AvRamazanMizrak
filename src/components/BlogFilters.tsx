@@ -53,11 +53,10 @@ export default function BlogFilters({ categories }: BlogFiltersProps) {
       <div className="flex flex-wrap gap-2 justify-center lg:justify-start w-full lg:w-auto">
         <button
           onClick={() => updateParams({ category: null })}
-          className={`px-4 py-2 text-xs font-bold rounded-lg border transition-all ${
-            currentCategory === 'all'
-              ? 'bg-legal-navy text-white border-legal-navy'
-              : 'bg-[#F8F7F4] border-stone-gray text-legal-navy hover:border-prestige-gold'
-          }`}
+          className={`px-4 py-2 text-xs font-bold rounded-lg border transition-all ${currentCategory === 'all'
+              ? 'bg-legal-navy dark:bg-prestige-gold text-white dark:text-slate-900 border-legal-navy dark:border-prestige-gold'
+              : 'bg-[#F8F7F4] dark:bg-slate-800 border-stone-gray dark:border-slate-700 text-legal-navy dark:text-slate-300 hover:border-prestige-gold dark:hover:border-prestige-gold'
+            }`}
         >
           TÜMÜ
         </button>
@@ -65,11 +64,10 @@ export default function BlogFilters({ categories }: BlogFiltersProps) {
           <button
             key={cat.id}
             onClick={() => updateParams({ category: cat.slug })}
-            className={`px-4 py-2 text-xs font-bold rounded-lg border transition-all ${
-              currentCategory === cat.slug
-                ? 'bg-legal-navy text-white border-legal-navy'
-                : 'bg-[#F8F7F4] border-stone-gray text-legal-navy hover:border-prestige-gold'
-            }`}
+            className={`px-4 py-2 text-xs font-bold rounded-lg border transition-all ${currentCategory === cat.slug
+                ? 'bg-legal-navy dark:bg-prestige-gold text-white dark:text-slate-900 border-legal-navy dark:border-prestige-gold'
+                : 'bg-[#F8F7F4] dark:bg-slate-800 border-stone-gray dark:border-slate-700 text-legal-navy dark:text-slate-300 hover:border-prestige-gold dark:hover:border-prestige-gold'
+              }`}
           >
             {cat.name.toUpperCase()}
           </button>
@@ -84,16 +82,16 @@ export default function BlogFilters({ categories }: BlogFiltersProps) {
             placeholder="Makale ara..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-[#F8F7F4] border border-stone-gray rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
+            className="w-full pl-10 pr-4 py-2.5 bg-[#F8F7F4] dark:bg-slate-800 border border-stone-gray dark:border-slate-700 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold dark:focus:border-prestige-gold outline-none text-sm text-legal-navy dark:text-slate-200 transition-colors"
           />
-          <span className="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-[20px]">
+          <span className="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant dark:text-slate-500 text-[20px] transition-colors">
             search
           </span>
         </form>
         <select
           value={currentSortBy}
           onChange={(e) => updateParams({ sortBy: e.target.value })}
-          className="bg-[#F8F7F4] border border-stone-gray rounded-lg px-4 py-2.5 text-sm focus:ring-1 focus:ring-prestige-gold outline-none"
+          className="bg-[#F8F7F4] dark:bg-slate-800 border border-stone-gray dark:border-slate-700 rounded-lg px-4 py-2.5 text-sm focus:ring-1 focus:ring-prestige-gold outline-none text-legal-navy dark:text-slate-200 transition-colors"
         >
           <option value="newest">En Yeni</option>
           <option value="oldest">En Eski</option>

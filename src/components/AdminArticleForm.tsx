@@ -76,13 +76,13 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-4xl bg-white border border-stone-gray/60 rounded-xl p-8 shadow-sm space-y-6">
+    <form onSubmit={handleSubmit} className="max-w-4xl bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-8 shadow-sm space-y-6 transition-colors duration-300">
       <div className="space-y-2 flex flex-col">
-        <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="title">
+        <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="title">
           MAKALE BAŞLIĞI
         </label>
         <input
-          className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none text-sm font-medium"
+          className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 transition-all outline-none text-sm font-medium dark:text-slate-200"
           id="title"
           type="text"
           placeholder="Örn: Yeni Veraset Kanunları"
@@ -93,23 +93,23 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
       </div>
 
       <div className="space-y-2 flex flex-col">
-        <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold">
+        <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold">
           KATEGORİLER (EN AZ BİR TANE SEÇİNİZ)
         </label>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg p-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg p-4">
           {categories.map((cat) => {
             const isChecked = formData.category_ids.includes(cat.id);
             return (
               <label
                 key={cat.id}
-                className="flex items-center space-x-3 text-sm text-legal-navy cursor-pointer select-none font-bold"
+                className="flex items-center space-x-3 text-sm text-legal-navy dark:text-slate-300 cursor-pointer select-none font-bold"
               >
                 <input
                   type="checkbox"
                   value={cat.id}
                   checked={isChecked}
                   onChange={(e) => handleCheckboxChange(cat.id, e.target.checked)}
-                  className="rounded border-stone-gray text-prestige-gold focus:ring-prestige-gold w-4 h-4 cursor-pointer"
+                  className="rounded border-stone-gray dark:border-slate-600 text-prestige-gold focus:ring-prestige-gold w-4 h-4 cursor-pointer"
                 />
                 <span className="font-bold">{cat.name}</span>
               </label>
@@ -120,11 +120,11 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="status">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="status">
             DURUM
           </label>
           <select
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-bold"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-bold dark:text-slate-200"
             id="status"
             required
             value={formData.status}
@@ -137,11 +137,11 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
       </div>
 
       <div className="space-y-2 flex flex-col">
-        <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="summary">
+        <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="summary">
           ÖZET (MAX 150 KARAKTER)
         </label>
         <textarea
-          className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none resize-none text-sm font-medium"
+          className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 transition-all outline-none resize-none text-sm font-medium dark:text-slate-200"
           id="summary"
           placeholder="Makalenin kısa bir özeti..."
           required
@@ -153,11 +153,11 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
       </div>
 
       <div className="space-y-2 flex flex-col">
-        <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="content">
+        <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="content">
           MAKALE İÇERİĞİ (HTML VEYA TEXT FORMATINDA)
         </label>
         <textarea
-          className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none resize-y text-sm font-medium"
+          className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 transition-all outline-none resize-y text-sm font-medium dark:text-slate-200"
           id="content"
           placeholder="Makalenin detaylı içeriğini yazın..."
           required
@@ -169,11 +169,11 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="meta_description">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="meta_description">
             META AÇIKLAMASI (SEO)
           </label>
           <input
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none text-sm font-medium"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 transition-all outline-none text-sm font-medium"
             id="meta_description"
             type="text"
             placeholder="Arama motoru gösterim açıklaması"
@@ -182,11 +182,11 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
           />
         </div>
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="meta_keywords">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="meta_keywords">
             META ANAHTAR KELİMELERİ (SEO)
           </label>
           <input
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none text-sm font-medium"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 transition-all outline-none text-sm font-medium"
             id="meta_keywords"
             type="text"
             placeholder="Örn: miras, vasiyet, avukat"
@@ -209,7 +209,7 @@ export default function AdminArticleForm({ categories, initialData, mode }: Arti
         </button>
         <Link
           href="/admin/articles"
-          className="px-6 py-4 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy text-sm font-bold rounded-lg transition-colors flex items-center"
+          className="px-6 py-4 bg-[#E2E8F0] dark:bg-slate-700 hover:bg-opacity-90 dark:hover:bg-opacity-80 text-legal-navy dark:text-slate-200 text-sm font-bold rounded-lg transition-colors flex items-center"
         >
           İptal Et
         </Link>

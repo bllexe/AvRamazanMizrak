@@ -73,22 +73,21 @@ export default function AdminPasswordForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-4xl bg-white border border-stone-gray/60 rounded-xl p-8 shadow-sm space-y-6"
+      className="max-w-4xl bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-8 shadow-sm space-y-6"
     >
-      <div className="border-b border-stone-gray/40 pb-3">
-        <h3 className="font-headline-sm text-lg text-legal-navy font-bold">Şifre Değiştir</h3>
-        <p className="text-xs text-on-surface-variant mt-1">
+      <div className="border-b border-stone-gray/40 dark:border-slate-700/40 pb-3">
+        <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">Şifre Değiştir</h3>
+        <p className="text-xs text-on-surface-variant dark:text-slate-400 mt-1">
           Yönetici hesabınızın şifresini güncelleyin.
         </p>
       </div>
 
       {status.type && (
         <div
-          className={`px-4 py-3 rounded-lg text-sm font-semibold flex items-center gap-2 border ${
-            status.type === 'success'
+          className={`px-4 py-3 rounded-lg text-sm font-semibold flex items-center gap-2 border ${status.type === 'success'
               ? 'bg-green-50 text-green-700 border-green-200'
               : 'bg-red-50 text-red-700 border-red-200'
-          }`}
+            }`}
         >
           <span className="material-symbols-outlined">
             {status.type === 'success' ? 'check_circle' : 'error'}
@@ -101,14 +100,14 @@ export default function AdminPasswordForm() {
         {/* New Password */}
         <div className="space-y-2 flex flex-col relative">
           <label
-            className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold"
+            className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold"
             htmlFor="new-password"
           >
             YENİ ŞİFRE
           </label>
           <div className="relative">
             <input
-              className="w-full pl-4 pr-12 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none text-sm"
+              className="w-full pl-4 pr-12 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 transition-all outline-none text-sm"
               id="new-password"
               type={showPassword ? 'text' : 'password'}
               required
@@ -119,7 +118,7 @@ export default function AdminPasswordForm() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-legal-navy transition-colors flex items-center"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-slate-400 hover:text-legal-navy dark:text-slate-100 transition-colors flex items-center"
             >
               <span className="material-symbols-outlined text-[20px]">
                 {showPassword ? 'visibility_off' : 'visibility'}
@@ -131,14 +130,14 @@ export default function AdminPasswordForm() {
         {/* Confirm Password */}
         <div className="space-y-2 flex flex-col relative">
           <label
-            className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold"
+            className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold"
             htmlFor="confirm-password"
           >
             YENİ ŞİFRE (TEKRAR)
           </label>
           <div className="relative">
             <input
-              className="w-full pl-4 pr-12 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none text-sm"
+              className="w-full pl-4 pr-12 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 transition-all outline-none text-sm"
               id="confirm-password"
               type={showConfirmPassword ? 'text' : 'password'}
               required
@@ -149,7 +148,7 @@ export default function AdminPasswordForm() {
             <button
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-legal-navy transition-colors flex items-center"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-slate-400 hover:text-legal-navy dark:text-slate-100 transition-colors flex items-center"
             >
               <span className="material-symbols-outlined text-[20px]">
                 {showConfirmPassword ? 'visibility_off' : 'visibility'}
@@ -159,7 +158,7 @@ export default function AdminPasswordForm() {
         </div>
       </div>
 
-      <div className="pt-4 border-t border-stone-gray/40">
+      <div className="pt-4 border-t border-stone-gray/40 dark:border-slate-700/40">
         <button
           className="w-full py-3.5 bg-legal-navy text-white font-bold rounded-lg hover:bg-opacity-95 transition-all flex items-center justify-center gap-2 group shadow-md text-xs uppercase tracking-wider disabled:opacity-75"
           type="submit"

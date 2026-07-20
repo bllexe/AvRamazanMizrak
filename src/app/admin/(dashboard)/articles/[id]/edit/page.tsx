@@ -23,9 +23,9 @@ export default async function AdminArticleEditPage({ params }: EditPageProps) {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <header className="pb-6 border-b border-stone-gray/40 shrink-0">
-        <h2 className="font-headline-md text-2xl text-legal-navy font-bold">Makaleyi Düzenle</h2>
-        <p className="text-sm text-on-surface-variant">
+      <header className="pb-6 border-b border-stone-gray/40 dark:border-slate-700/40 shrink-0">
+        <h2 className="font-headline-md text-2xl text-legal-navy dark:text-slate-100 font-bold">Makaleyi Düzenle</h2>
+        <p className="text-sm text-on-surface-variant dark:text-slate-400">
           Mevcut makalenizin içeriğini güncelleyin.
         </p>
       </header>

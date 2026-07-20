@@ -88,14 +88,14 @@ export default function ResourcesList({ initialResources }: ResourcesListProps) 
           {resources.map((res) => (
             <div
               key={res.id}
-              className="bg-white border border-stone-gray p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-slate-800 border border-stone-gray dark:border-slate-700/60 p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="w-10 h-10 bg-[#F8F7F4] border border-stone-gray rounded flex items-center justify-center text-prestige-gold">
+                  <span className="w-10 h-10 bg-[#F8F7F4] dark:bg-slate-900 border border-stone-gray dark:border-slate-700 rounded flex items-center justify-center text-prestige-gold">
                     <span className="material-symbols-outlined">description</span>
                   </span>
-                  <span className="text-xs font-bold text-prestige-gold uppercase tracking-wider bg-[#F8F7F4] px-2.5 py-1 rounded">
+                  <span className="text-xs font-bold text-prestige-gold uppercase tracking-wider bg-[#F8F7F4] dark:bg-slate-900 px-2.5 py-1 rounded">
                     {res.category === 'guide'
                       ? 'Kılavuz'
                       : res.category === 'template'
@@ -103,14 +103,14 @@ export default function ResourcesList({ initialResources }: ResourcesListProps) 
                       : 'Doküman'}
                   </span>
                 </div>
-                <h3 className="font-headline-sm text-xl text-legal-navy mb-2 font-bold">
+                <h3 className="font-headline-sm text-xl text-legal-navy dark:text-slate-100 mb-2 font-bold transition-colors">
                   {res.title}
                 </h3>
-                <p className="text-sm text-on-surface-variant mb-6">{res.description}</p>
+                <p className="text-sm text-on-surface-variant dark:text-slate-400 mb-6 transition-colors">{res.description}</p>
               </div>
 
-              <div className="flex items-center justify-between border-t border-stone-gray/60 pt-4 mt-6">
-                <span className="text-xs text-on-surface-variant font-medium">
+              <div className="flex items-center justify-between border-t border-stone-gray/60 dark:border-slate-700/60 pt-4 mt-6">
+                <span className="text-xs text-on-surface-variant dark:text-slate-400 font-medium">
                   {res.file_url ? (
                     <>
                       Boyut:{' '}
@@ -141,17 +141,17 @@ export default function ResourcesList({ initialResources }: ResourcesListProps) 
                     İncele & Kopyala
                   </button>
                 ) : (
-                  <span className="text-xs text-stone-400">Detay yok</span>
+                  <span className="text-xs text-stone-400 dark:text-slate-500">Detay yok</span>
                 )}
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 bg-white border border-stone-gray rounded-xl">
-          <span className="material-symbols-outlined text-5xl text-stone-gray mb-4">folder_off</span>
-          <h3 className="font-headline-sm text-legal-navy text-xl font-bold">Doküman Bulunmamaktadır</h3>
-          <p className="text-on-surface-variant mt-2">Henüz indirilebilir kaynak yüklenmemiştir.</p>
+        <div className="text-center py-20 bg-white dark:bg-slate-800 border border-stone-gray dark:border-slate-700/60 rounded-xl transition-colors">
+          <span className="material-symbols-outlined text-5xl text-stone-gray dark:text-slate-600 mb-4">folder_off</span>
+          <h3 className="font-headline-sm text-legal-navy dark:text-slate-100 text-xl font-bold">Doküman Bulunmamaktadır</h3>
+          <p className="text-on-surface-variant dark:text-slate-400 mt-2">Henüz indirilebilir kaynak yüklenmemiştir.</p>
         </div>
       )}
 
@@ -165,37 +165,37 @@ export default function ResourcesList({ initialResources }: ResourcesListProps) 
           />
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-xl shadow-2xl border border-stone-gray max-w-2xl w-full mx-4 overflow-hidden flex flex-col max-h-[85vh] z-10">
+          <div className="relative bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-stone-gray dark:border-slate-700 max-w-2xl w-full mx-4 overflow-hidden flex flex-col max-h-[85vh] z-10">
             {/* Header */}
-            <div className="p-6 border-b border-stone-gray flex items-center justify-between shrink-0 bg-[#f3f4f5]">
+            <div className="p-6 border-b border-stone-gray dark:border-slate-700 flex items-center justify-between shrink-0 bg-[#f3f4f5] dark:bg-slate-800/80">
               <div>
-                <h3 className="font-headline-sm text-lg text-legal-navy font-bold">
+                <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">
                   {modalResource.title}
                 </h3>
-                <p className="text-xs text-on-surface-variant mt-0.5">
+                <p className="text-xs text-on-surface-variant dark:text-slate-400 mt-0.5">
                   Aşağıdaki metni kopyalayarak düzenleyebilirsiniz.
                 </p>
               </div>
               <button
                 onClick={closeModal}
-                className="text-on-surface-variant hover:text-legal-navy transition-colors flex items-center"
+                className="text-on-surface-variant dark:text-slate-400 hover:text-legal-navy dark:hover:text-slate-200 transition-colors flex items-center"
               >
                 <span className="material-symbols-outlined">close</span>
               </button>
             </div>
 
             {/* Body */}
-            <div className="p-6 overflow-y-auto flex-1 bg-[#FAF9F6]">
-              <pre className="text-xs text-legal-navy font-mono leading-relaxed whitespace-pre-wrap select-text p-4 bg-white border border-stone-gray rounded-lg">
+            <div className="p-6 overflow-y-auto flex-1 bg-[#FAF9F6] dark:bg-slate-900/50">
+              <pre className="text-xs text-legal-navy dark:text-slate-300 font-mono leading-relaxed whitespace-pre-wrap select-text p-4 bg-white dark:bg-slate-800 border border-stone-gray dark:border-slate-700 rounded-lg">
                 {modalResource.content}
               </pre>
             </div>
 
             {/* Footer */}
-            <div className="p-6 border-t border-stone-gray flex justify-end gap-3 shrink-0 bg-white">
+            <div className="p-6 border-t border-stone-gray dark:border-slate-700 flex justify-end gap-3 shrink-0 bg-white dark:bg-slate-800">
               <button
                 onClick={closeModal}
-                className="px-5 py-2.5 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy font-semibold text-xs rounded transition-colors"
+                className="px-5 py-2.5 bg-[#E2E8F0] dark:bg-slate-700 hover:bg-opacity-90 dark:hover:bg-slate-600 text-legal-navy dark:text-slate-200 font-semibold text-xs rounded transition-colors"
               >
                 Kapat
               </button>

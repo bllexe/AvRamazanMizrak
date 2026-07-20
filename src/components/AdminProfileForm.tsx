@@ -189,10 +189,10 @@ export default function AdminProfileForm({
       {/* Lawyer Profile Card */}
       <form
         onSubmit={handleProfileSubmit}
-        className="bg-white border border-stone-gray/60 rounded-xl p-8 shadow-sm space-y-6"
+        className="bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-8 shadow-sm space-y-6"
       >
-        <div className="flex justify-between items-center border-b border-stone-gray/40 pb-3">
-          <h3 className="font-headline-sm text-lg text-legal-navy font-bold">Profil Bilgileri</h3>
+        <div className="flex justify-between items-center border-b border-stone-gray/40 dark:border-slate-700/40 pb-3">
+          <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">Profil Bilgileri</h3>
           {profileSuccess && (
             <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded border border-green-200 animate-fade-in-down">
               Değişiklikler Kaydedildi!
@@ -202,11 +202,11 @@ export default function AdminProfileForm({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="full_name">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="full_name">
               AVUKAT AD SOYAD
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="full_name"
               type="text"
               required
@@ -215,11 +215,11 @@ export default function AdminProfileForm({
             />
           </div>
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="title">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="title">
               UNVAN
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="title"
               type="text"
               required
@@ -231,11 +231,11 @@ export default function AdminProfileForm({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="bar_number">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="bar_number">
               BARO SİCİL NO
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="bar_number"
               type="text"
               required
@@ -244,11 +244,11 @@ export default function AdminProfileForm({
             />
           </div>
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="experience_years">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="experience_years">
               DENEYİM YILI
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="experience_years"
               type="number"
               required
@@ -261,28 +261,28 @@ export default function AdminProfileForm({
         </div>
 
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="specializations">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="specializations">
             UZMANLIK ALANLARI (JSON DİZİ BİÇİMİNDE)
           </label>
           <input
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-mono"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-mono"
             id="specializations"
             type="text"
             required
             value={profileData.specializations}
             onChange={(e) => setProfileData({ ...profileData, specializations: e.target.value })}
           />
-          <p className="text-[10px] text-on-surface-variant font-medium">
+          <p className="text-[10px] text-on-surface-variant dark:text-slate-400 font-medium">
             Örnek: [&quot;Şirketler Hukuku&quot;, &quot;Ceza Hukuku&quot;, &quot;KVKK&quot;]
           </p>
         </div>
 
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="bio_short">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="bio_short">
             KISA ÖZGEÇMİŞ (ANASAYFA HAKKIMDA METNİ)
           </label>
           <textarea
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
             id="bio_short"
             required
             rows={3}
@@ -292,29 +292,29 @@ export default function AdminProfileForm({
         </div>
 
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="bio_long">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="bio_long">
             DETAYLI ÖZGEÇMİŞ (HAKKIMDA SAYFASI HTML METNİ)
           </label>
           <textarea
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
             id="bio_long"
             required
             rows={10}
             value={profileData.bio_long}
             onChange={(e) => setProfileData({ ...profileData, bio_long: e.target.value })}
           />
-          <p className="text-[10px] text-on-surface-variant font-medium">
+          <p className="text-[10px] text-on-surface-variant dark:text-slate-400 font-medium">
             Paragraflar için &lt;p&gt; metin &lt;/p&gt; etiketlerini kullanabilirsiniz.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="email">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="email">
               E-POSTA ADRESİ
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="email"
               type="email"
               required
@@ -323,11 +323,11 @@ export default function AdminProfileForm({
             />
           </div>
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="phone">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="phone">
               TELEFON HATI
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="phone"
               type="text"
               required
@@ -336,11 +336,11 @@ export default function AdminProfileForm({
             />
           </div>
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="whatsapp_number">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="whatsapp_number">
               WHATSAPP HATI
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="whatsapp_number"
               type="text"
               required
@@ -352,11 +352,11 @@ export default function AdminProfileForm({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="linkedin_url">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="linkedin_url">
               LINKEDIN URL
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="linkedin_url"
               type="text"
               value={profileData.linkedin_url}
@@ -364,11 +364,11 @@ export default function AdminProfileForm({
             />
           </div>
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="twitter_url">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="twitter_url">
               TWITTER URL
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="twitter_url"
               type="text"
               value={profileData.twitter_url}
@@ -376,11 +376,11 @@ export default function AdminProfileForm({
             />
           </div>
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="instagram_url">
+            <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="instagram_url">
               INSTAGRAM URL
             </label>
             <input
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-medium"
               id="instagram_url"
               type="text"
               value={profileData.instagram_url}
@@ -389,7 +389,7 @@ export default function AdminProfileForm({
           </div>
         </div>
 
-        <div className="pt-4 border-t border-stone-gray/40">
+        <div className="pt-4 border-t border-stone-gray/40 dark:border-slate-700/40">
           <button
             className="w-full py-3.5 bg-legal-navy text-white font-bold rounded-lg hover:bg-opacity-95 transition-all flex items-center justify-center gap-2 group shadow-md text-xs uppercase tracking-wider disabled:opacity-75"
             type="submit"
@@ -406,12 +406,12 @@ export default function AdminProfileForm({
       {/* Certifications Management Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
         {/* Certifications List (2/3 width) */}
-        <div className="lg:col-span-2 bg-white border border-stone-gray/60 rounded-xl p-6 shadow-sm flex flex-col justify-between">
+        <div className="lg:col-span-2 bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-6 shadow-sm flex flex-col justify-between">
           <div>
-            <h3 className="font-headline-sm text-lg text-legal-navy font-bold mb-1">
+            <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold mb-1">
               Sertifikalar & Eğitimler
             </h3>
-            <p className="text-xs text-on-surface-variant mb-4">
+            <p className="text-xs text-on-surface-variant dark:text-slate-400 mb-4">
               Hakkımda sayfasında listelenen mesleki sertifika ve eğitim bilgilerinizi yönetin.
             </p>
           </div>
@@ -419,7 +419,7 @@ export default function AdminProfileForm({
           <div className="overflow-x-auto flex-1">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="bg-stone-50 text-on-surface-variant text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40">
+                <tr className="bg-stone-50 dark:bg-slate-900/50 text-on-surface-variant dark:text-slate-400 text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40 dark:border-slate-700/40">
                   <th className="px-4 py-3">Sıra</th>
                   <th className="px-4 py-3">Sertifika / Eğitim Adı</th>
                   <th className="px-4 py-3">Veren Kurum</th>
@@ -427,16 +427,16 @@ export default function AdminProfileForm({
                   <th className="px-4 py-3 text-right">İşlemler</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-gray/30 text-xs">
+              <tbody className="divide-y divide-stone-gray/30 dark:divide-slate-700/50 text-xs">
                 {certifications.length > 0 ? (
                   certifications.map((cert) => (
-                    <tr key={cert.id} className="hover:bg-stone-50 transition-colors">
-                      <td className="px-4 py-3 text-xs font-semibold text-legal-navy">
+                    <tr key={cert.id} className="hover:bg-stone-50 dark:hover:bg-slate-700/50 dark:bg-slate-900/50 transition-colors">
+                      <td className="px-4 py-3 text-xs font-semibold text-legal-navy dark:text-slate-100">
                         {cert.display_order}
                       </td>
-                      <td className="px-4 py-3 font-bold text-legal-navy">{cert.title}</td>
-                      <td className="px-4 py-3 text-on-surface-variant">{cert.issuer}</td>
-                      <td className="px-4 py-3 text-on-surface-variant">
+                      <td className="px-4 py-3 font-bold text-legal-navy dark:text-slate-100">{cert.title}</td>
+                      <td className="px-4 py-3 text-on-surface-variant dark:text-slate-400">{cert.issuer}</td>
+                      <td className="px-4 py-3 text-on-surface-variant dark:text-slate-400">
                         {cert.date_obtained
                           ? new Date(cert.date_obtained).toLocaleDateString('tr-TR', {
                               year: 'numeric',
@@ -449,7 +449,7 @@ export default function AdminProfileForm({
                           <button
                             type="button"
                             onClick={() => handleCertEdit(cert)}
-                            className="text-legal-navy hover:text-prestige-gold transition-colors flex items-center"
+                            className="text-legal-navy dark:text-slate-100 hover:text-prestige-gold transition-colors flex items-center"
                             title="Düzenle"
                           >
                             <span className="material-symbols-outlined text-[18px]">edit</span>
@@ -468,7 +468,7 @@ export default function AdminProfileForm({
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={5} className="text-center py-8 text-on-surface-variant">
+                    <td colSpan={5} className="text-center py-8 text-on-surface-variant dark:text-slate-400">
                       Sertifika veya eğitim kaydı bulunmamaktadır.
                     </td>
                   </tr>
@@ -479,23 +479,23 @@ export default function AdminProfileForm({
         </div>
 
         {/* Certifications Form (1/3 width) */}
-        <div className="bg-white border border-stone-gray/60 rounded-xl p-6 shadow-sm space-y-4">
+        <div className="bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-6 shadow-sm space-y-4">
           <div>
-            <h4 className="font-bold text-legal-navy text-sm">
+            <h4 className="font-bold text-legal-navy dark:text-slate-100 text-sm">
               {certFormMode === 'create' ? 'Yeni Sertifika Ekle' : 'Sertifikayı Düzenle'}
             </h4>
-            <p className="text-[10px] text-on-surface-variant mt-0.5">
+            <p className="text-[10px] text-on-surface-variant dark:text-slate-400 mt-0.5">
               Sertifika bilgilerini girerek kaydediniz.
             </p>
           </div>
 
           <form onSubmit={handleCertSubmit} className="space-y-3">
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[9px] text-on-surface-variant tracking-wider block font-bold" htmlFor="cert_title">
+              <label className="font-label-caps text-[9px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="cert_title">
                 SERTİFİKA / EĞİTİM ADI
               </label>
               <input
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
                 id="cert_title"
                 type="text"
                 placeholder="Örn: KVKK Uzmanlık Sertifikası"
@@ -506,11 +506,11 @@ export default function AdminProfileForm({
             </div>
 
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[9px] text-on-surface-variant tracking-wider block font-bold" htmlFor="cert_issuer">
+              <label className="font-label-caps text-[9px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="cert_issuer">
                 VEREN KURUM
               </label>
               <input
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
                 id="cert_issuer"
                 type="text"
                 placeholder="Örn: Türkiye Barolar Birliği"
@@ -522,11 +522,11 @@ export default function AdminProfileForm({
 
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1 flex flex-col">
-                <label className="font-label-caps text-[9px] text-on-surface-variant tracking-wider block font-bold" htmlFor="cert_date">
+                <label className="font-label-caps text-[9px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="cert_date">
                   ALINDIĞI TARİH
                 </label>
                 <input
-                  className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
+                  className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
                   id="cert_date"
                   type="date"
                   required
@@ -538,11 +538,11 @@ export default function AdminProfileForm({
               </div>
 
               <div className="space-y-1 flex flex-col">
-                <label className="font-label-caps text-[9px] text-on-surface-variant tracking-wider block font-bold" htmlFor="cert_order">
+                <label className="font-label-caps text-[9px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="cert_order">
                   SIRA NO
                 </label>
                 <input
-                  className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
+                  className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs"
                   id="cert_order"
                   type="number"
                   required
@@ -566,7 +566,7 @@ export default function AdminProfileForm({
                 <button
                   type="button"
                   onClick={handleCertCancel}
-                  className="w-full py-1.5 bg-[#E2E8F0] text-legal-navy font-bold rounded-lg hover:bg-opacity-90 transition-all text-xs"
+                  className="w-full py-1.5 bg-[#E2E8F0] text-legal-navy dark:text-slate-100 font-bold rounded-lg hover:bg-opacity-90 transition-all text-xs"
                 >
                   İptal Et
                 </button>
@@ -586,15 +586,15 @@ export default function AdminProfileForm({
           />
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-xl shadow-xl border border-stone-gray max-w-sm w-full mx-4 overflow-hidden z-10">
+          <div className="relative bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-stone-gray dark:border-slate-700 max-w-sm w-full mx-4 overflow-hidden z-10">
             <div className="p-6">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0">
                   <span className="material-symbols-outlined text-[24px]">warning</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-legal-navy text-sm">Sertifikayı Sil</h4>
-                  <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                  <h4 className="font-bold text-legal-navy dark:text-slate-100 text-sm">Sertifikayı Sil</h4>
+                  <p className="text-xs text-on-surface-variant dark:text-slate-400 mt-1.5 leading-relaxed">
                     Bu sertifika/eğitim kaydını silmek istediğinize emin misiniz? Bu işlem geri
                     alınamaz.
                   </p>
@@ -603,7 +603,7 @@ export default function AdminProfileForm({
               <div className="flex justify-end gap-3">
                 <button
                   onClick={() => setDeleteCertId(null)}
-                  className="px-4 py-2 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy font-semibold text-xs rounded-lg transition-colors"
+                  className="px-4 py-2 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy dark:text-slate-100 font-semibold text-xs rounded-lg transition-colors"
                 >
                   İptal
                 </button>

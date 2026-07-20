@@ -17,7 +17,7 @@ export default async function AdminDashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#F8F7F4] flex flex-col lg:flex-row font-body-md text-on-surface antialiased overflow-hidden">
+    <div className="min-h-screen bg-[#F8F7F4] dark:bg-slate-900 flex flex-col lg:flex-row font-body-md text-on-surface dark:text-slate-200 antialiased overflow-hidden transition-colors duration-300">
       {/* Sidebar */}
       <AdminSidebar />
 

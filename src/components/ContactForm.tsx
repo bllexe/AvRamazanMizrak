@@ -59,19 +59,19 @@ export default function ContactForm() {
 
   return (
     <>
-      <div className="lg:col-span-7 bg-white p-8 md:p-12 border border-[#E5E4E1] rounded-xl shadow-sm">
-        <h2 className="font-headline-md text-headline-md text-legal-navy mb-8 font-bold">
+      <div className="lg:col-span-7 bg-white dark:bg-slate-800 p-8 md:p-12 border border-[#E5E4E1] dark:border-slate-700/70 rounded-xl shadow-sm transition-colors duration-300">
+        <h2 className="font-headline-md text-headline-md text-legal-navy dark:text-slate-100 mb-8 font-bold transition-colors">
           İletişim Formu
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Name */}
             <div className="space-y-2 flex flex-col">
-              <label className="font-label-caps text-label-caps text-on-surface-variant font-bold text-xs" htmlFor="name">
+              <label className="font-label-caps text-label-caps text-on-surface-variant dark:text-slate-400 font-bold text-xs transition-colors" htmlFor="name">
                 AD SOYAD
               </label>
               <input
-                className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none"
+                className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/60 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold dark:focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 text-legal-navy dark:text-slate-100 transition-all outline-none"
                 id="name"
                 placeholder="Adınız Soyadınız"
                 required
@@ -82,11 +82,11 @@ export default function ContactForm() {
             </div>
             {/* Email */}
             <div className="space-y-2 flex flex-col">
-              <label className="font-label-caps text-label-caps text-on-surface-variant font-bold text-xs" htmlFor="email">
+              <label className="font-label-caps text-label-caps text-on-surface-variant dark:text-slate-400 font-bold text-xs transition-colors" htmlFor="email">
                 E-POSTA ADRESİ
               </label>
               <input
-                className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none"
+                className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/60 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold dark:focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 text-legal-navy dark:text-slate-100 transition-all outline-none"
                 id="email"
                 placeholder="email@ornek.com"
                 required
@@ -100,11 +100,11 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Phone */}
             <div className="space-y-2 flex flex-col">
-              <label className="font-label-caps text-label-caps text-on-surface-variant font-bold text-xs" htmlFor="phone">
+              <label className="font-label-caps text-label-caps text-on-surface-variant dark:text-slate-400 font-bold text-xs transition-colors" htmlFor="phone">
                 TELEFON (İSTEĞE BAĞLI)
               </label>
               <input
-                className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none"
+                className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/60 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold dark:focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 text-legal-navy dark:text-slate-100 transition-all outline-none"
                 id="phone"
                 placeholder="+90 (555) 000 00 00"
                 type="text"
@@ -114,11 +114,11 @@ export default function ContactForm() {
             </div>
             {/* Subject */}
             <div className="space-y-2 flex flex-col">
-              <label className="font-label-caps text-label-caps text-on-surface-variant font-bold text-xs" htmlFor="subject">
+              <label className="font-label-caps text-label-caps text-on-surface-variant dark:text-slate-400 font-bold text-xs transition-colors" htmlFor="subject">
                 KONU
               </label>
               <input
-                className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none"
+                className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/60 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold dark:focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 text-legal-navy dark:text-slate-100 transition-all outline-none"
                 id="subject"
                 placeholder="Hukuki Danışmanlık vb."
                 required
@@ -131,11 +131,11 @@ export default function ContactForm() {
 
           {/* Message */}
           <div className="space-y-2 flex flex-col">
-            <label className="font-label-caps text-label-caps text-on-surface-variant font-bold text-xs" htmlFor="message">
+            <label className="font-label-caps text-label-caps text-on-surface-variant dark:text-slate-400 font-bold text-xs transition-colors" htmlFor="message">
               MESAJINIZ
             </label>
             <textarea
-              className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none resize-none"
+              className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/60 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold dark:focus:border-prestige-gold hover:border-[#C4C1BA] dark:hover:border-slate-600 text-legal-navy dark:text-slate-100 transition-all outline-none resize-none"
               id="message"
               placeholder="Hukuki konuyu kısaca özetleyiniz..."
               required
@@ -148,14 +148,14 @@ export default function ContactForm() {
           {/* Consent */}
           <div className="flex items-start gap-3">
             <input
-              className="mt-1.5 w-4 h-4 border-[#DEDCD7] text-prestige-gold rounded focus:ring-prestige-gold bg-[#FCFBFA]"
+              className="mt-1.5 w-4 h-4 border-[#DEDCD7] dark:border-slate-600 text-prestige-gold rounded focus:ring-prestige-gold bg-[#FCFBFA] dark:bg-slate-800"
               id="consent"
               required
               type="checkbox"
               checked={formData.consent}
               onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
             />
-            <label className="text-xs text-on-surface-variant leading-relaxed" htmlFor="consent">
+            <label className="text-xs text-on-surface-variant dark:text-slate-400 leading-relaxed transition-colors" htmlFor="consent">
               Kişisel verilerimin{' '}
               <Link className="text-prestige-gold underline font-semibold" href="/legal/kvkk">
                 KVKK Aydınlatma Metni
@@ -166,12 +166,12 @@ export default function ContactForm() {
 
           {/* Submit Button */}
           <button
-            className="w-full py-4 bg-legal-navy text-white font-bold rounded-lg hover:bg-opacity-95 transition-all flex items-center justify-center gap-2 group shadow-lg disabled:opacity-70"
+            className="w-full py-4 bg-legal-navy dark:bg-prestige-gold text-white dark:text-legal-navy font-bold rounded-lg hover:bg-opacity-95 transition-all flex items-center justify-center gap-2 group shadow-lg disabled:opacity-70"
             type="submit"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Gönderiliyor...' : 'Mesajı Gönder'}
-            <span className="material-symbols-outlined text-prestige-gold group-hover:translate-x-1 transition-transform">
+            <span className="material-symbols-outlined text-prestige-gold dark:text-legal-navy group-hover:translate-x-1 transition-transform">
               arrow_forward
             </span>
           </button>
@@ -180,14 +180,13 @@ export default function ContactForm() {
 
       {/* Success Toast */}
       <div
-        className={`fixed bottom-8 right-8 bg-white border-l-4 border-prestige-gold p-6 shadow-2xl transition-all duration-500 z-[100] flex items-center gap-4 rounded-r-lg ${
-          showToast ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
-        }`}
+        className={`fixed bottom-8 right-8 bg-white dark:bg-slate-800 border-l-4 border-prestige-gold p-6 shadow-2xl transition-all duration-500 z-[100] flex items-center gap-4 rounded-r-lg ${showToast ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
+          }`}
       >
         <span className="material-symbols-outlined text-prestige-gold text-3xl">check_circle</span>
         <div>
-          <p className="font-bold text-legal-navy">Mesajınız Alındı</p>
-          <p className="text-sm text-on-surface-variant">En kısa sürede size geri dönüş yapacağım.</p>
+          <p className="font-bold text-legal-navy dark:text-slate-100">Mesajınız Alındı</p>
+          <p className="text-sm text-on-surface-variant dark:text-slate-400">En kısa sürede size geri dönüş yapacağım.</p>
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-// File: /home/bilal/GithubProject/FreelancerWebProjeleri/AvRamazanHoca/src/app/api/admin/categories/route.ts
+// File: /home/bilal/GithubProject/FreelancerWebProjeleri/AvRamazanMizrak/src/app/api/admin/categories/route.ts
 import * as entry from '../../../../../../src/app/api/admin/categories/route.js'
 import type { NextRequest } from 'next/server.js'
 

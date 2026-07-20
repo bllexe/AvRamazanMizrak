@@ -1,4 +1,4 @@
-// File: /home/bilal/GithubProject/FreelancerWebProjeleri/AvRamazanHoca/src/app/makaleler/[slug]/page.tsx
+// File: /home/bilal/GithubProject/FreelancerWebProjeleri/AvRamazanMizrak/src/app/makaleler/[slug]/page.tsx
 import * as entry from '../../../../../src/app/makaleler/[slug]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

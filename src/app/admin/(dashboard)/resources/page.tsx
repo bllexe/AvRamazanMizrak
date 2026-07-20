@@ -162,9 +162,9 @@ export default function AdminResourcesPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <header className="pb-6 border-b border-stone-gray/40 shrink-0">
-        <h2 className="font-headline-md text-2xl text-legal-navy font-bold">Kaynak & Doküman Yönetimi</h2>
-        <p className="text-sm text-on-surface-variant">
+      <header className="pb-6 border-b border-stone-gray/40 dark:border-slate-700/40 shrink-0">
+        <h2 className="font-headline-md text-2xl text-legal-navy dark:text-slate-100 font-bold">Kaynak & Doküman Yönetimi</h2>
+        <p className="text-sm text-on-surface-variant dark:text-slate-400">
           Sitenizdeki &quot;Kaynaklar&quot; sayfasında listelenen dosya ve şablonları yönetin.
         </p>
       </header>
@@ -172,11 +172,11 @@ export default function AdminResourcesPage() {
       {/* Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {/* Resources List (2/3 width) */}
-        <div className="lg:col-span-2 bg-white border border-stone-gray/60 rounded-xl shadow-sm overflow-hidden">
+        <div className="lg:col-span-2 bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-stone-50 text-on-surface-variant text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40">
+                <tr className="bg-stone-50 dark:bg-slate-900/50 text-on-surface-variant dark:text-slate-400 text-[10px] uppercase font-bold tracking-wider border-b border-stone-gray/40 dark:border-slate-700/40">
                   <th className="px-6 py-4">Sıra</th>
                   <th className="px-6 py-4">Başlık</th>
                   <th className="px-6 py-4">Kategori</th>
@@ -185,34 +185,34 @@ export default function AdminResourcesPage() {
                   <th className="px-6 py-4 text-right">İşlemler</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-gray/30 text-sm">
+              <tbody className="divide-y divide-stone-gray/30 dark:divide-slate-700/50 text-sm">
                 {isLoading ? (
                   <tr>
-                    <td colSpan={6} className="text-center py-12 text-on-surface-variant">
+                    <td colSpan={6} className="text-center py-12 text-on-surface-variant dark:text-slate-400">
                       Kaynaklar yükleniyor...
                     </td>
                   </tr>
                 ) : resources.length > 0 ? (
                   resources.map((res) => (
-                    <tr key={res.id} className="hover:bg-stone-50 transition-colors">
-                      <td className="px-6 py-4 text-xs font-bold text-legal-navy">
+                    <tr key={res.id} className="hover:bg-stone-50 dark:hover:bg-slate-700/50 dark:bg-slate-900/50 transition-colors">
+                      <td className="px-6 py-4 text-xs font-bold text-legal-navy dark:text-slate-100">
                         {res.display_order}
                       </td>
                       <td className="px-6 py-4">
-                        <div className="font-bold text-legal-navy">{res.title}</div>
+                        <div className="font-bold text-legal-navy dark:text-slate-100">{res.title}</div>
                         {res.description && (
-                          <div className="text-xs text-on-surface-variant truncate max-w-xs mt-0.5 font-medium">
+                          <div className="text-xs text-on-surface-variant dark:text-slate-400 truncate max-w-xs mt-0.5 font-medium">
                             {res.description}
                           </div>
                         )}
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 bg-stone-100 border border-stone-200 rounded-full text-legal-navy">
+                        <span className="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 bg-stone-100 dark:bg-slate-700 border border-stone-200 rounded-full text-legal-navy dark:text-slate-100">
                           {res.category === 'guide'
                             ? 'Kılavuz'
                             : res.category === 'template'
-                            ? 'Şablon'
-                            : 'Doküman'}
+                              ? 'Şablon'
+                              : 'Doküman'}
                         </span>
                       </td>
                       <td className="px-6 py-4 text-xs">
@@ -232,14 +232,14 @@ export default function AdminResourcesPage() {
                           <span className="text-stone-400 font-bold">Boş</span>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-xs font-bold text-legal-navy">
+                      <td className="px-6 py-4 text-xs font-bold text-legal-navy dark:text-slate-100">
                         {res.download_count}
                       </td>
                       <td className="px-6 py-4 text-right">
                         <div className="flex items-center justify-end gap-3">
                           <button
                             onClick={() => handleEdit(res)}
-                            className="text-legal-navy hover:text-prestige-gold transition-colors flex items-center"
+                            className="text-legal-navy dark:text-slate-100 hover:text-prestige-gold transition-colors flex items-center"
                             title="Düzenle"
                           >
                             <span className="material-symbols-outlined text-[20px]">edit</span>
@@ -257,7 +257,7 @@ export default function AdminResourcesPage() {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={6} className="text-center py-12 text-on-surface-variant font-medium">
+                    <td colSpan={6} className="text-center py-12 text-on-surface-variant dark:text-slate-400 font-medium">
                       Kaynak bulunmamaktadır.
                     </td>
                   </tr>
@@ -268,23 +268,23 @@ export default function AdminResourcesPage() {
         </div>
 
         {/* Create / Edit Form Card (1/3 width) */}
-        <div className="bg-white border border-stone-gray/60 rounded-xl p-6 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-6 shadow-sm space-y-6">
           <div>
-            <h3 className="font-headline-sm text-lg text-legal-navy font-bold">
+            <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">
               {formMode === 'create' ? 'Yeni Kaynak Ekle' : 'Kaynağı Düzenle'}
             </h3>
-            <p className="text-xs text-on-surface-variant mt-1">
+            <p className="text-xs text-on-surface-variant dark:text-slate-400 mt-1">
               İndirilebilir bir dosya yükleyin veya kopyalanabilir şablon metni girin.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="title">
+              <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="title">
                 KAYNAK BAŞLIĞI
               </label>
               <input
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
                 id="title"
                 type="text"
                 placeholder="Örn: KVKK Uyum Kılavuzu"
@@ -296,11 +296,11 @@ export default function AdminResourcesPage() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1 flex flex-col">
-                <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="category">
+                <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="category">
                   KATEGORİ
                 </label>
                 <select
-                  className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-semibold"
+                  className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm font-semibold"
                   id="category"
                   required
                   value={formData.category}
@@ -313,11 +313,11 @@ export default function AdminResourcesPage() {
               </div>
 
               <div className="space-y-1 flex flex-col">
-                <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="display_order">
+                <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="display_order">
                   SIRA NO
                 </label>
                 <input
-                  className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
+                  className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
                   id="display_order"
                   type="number"
                   required
@@ -329,14 +329,14 @@ export default function AdminResourcesPage() {
 
             <div className="space-y-1 flex flex-col">
               <div className="flex items-center justify-between">
-                <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="file-upload">
+                <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="file-upload">
                   DOSYA YÜKLE (OPSİYONEL)
                 </label>
                 <div className="group relative flex items-center">
                   <span className="material-symbols-outlined text-[15px] text-prestige-gold cursor-help hover:text-opacity-80 transition-colors">
                     info
                   </span>
-                  <div className="absolute right-0 bottom-full mb-2 w-48 p-2.5 bg-legal-navy text-white text-[10px] rounded shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 z-10 leading-normal border border-stone-gray/20 font-medium">
+                  <div className="absolute right-0 bottom-full mb-2 w-48 p-2.5 bg-legal-navy text-white text-[10px] rounded shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 z-10 leading-normal border border-stone-gray/20 dark:border-slate-700/20 font-medium">
                     <strong className="text-prestige-gold">Dosya Yükleme Limitleri:</strong>
                     <br />
                     • Tek dosya: maks. 10 MB
@@ -346,7 +346,7 @@ export default function AdminResourcesPage() {
                 </div>
               </div>
               <input
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg outline-none text-sm file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-bold file:bg-stone-100 file:text-legal-navy hover:file:bg-opacity-80"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg outline-none text-sm file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-bold file:bg-stone-100 dark:bg-slate-700 file:text-legal-navy dark:text-slate-100 hover:file:bg-opacity-80"
                 id="file-upload"
                 type="file"
                 onChange={(e) => {
@@ -355,11 +355,11 @@ export default function AdminResourcesPage() {
                   }
                 }}
               />
-              <p className="text-[9px] text-on-surface-variant font-medium">
+              {/* <p className="text-[9px] text-on-surface-variant dark:text-slate-400 font-medium">
                 Seçtiğiniz dosya otomatik olarak Supabase Storage&apos;a yüklenir.
-              </p>
+              </p> */}
               {formMode === 'edit' && formData.existing_file_url && (
-                <div className="text-xs text-on-surface-variant mt-1 font-bold">
+                <div className="text-xs text-on-surface-variant dark:text-slate-400 mt-1 font-bold">
                   Mevcut Dosya:{' '}
                   <a
                     href={formData.existing_file_url}
@@ -374,28 +374,28 @@ export default function AdminResourcesPage() {
             </div>
 
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="content">
+              <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="content">
                 KOPYALANABİLİR ŞABLON METNİ (OPSİYONEL)
               </label>
               <textarea
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-xs font-mono"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-xs font-mono"
                 id="content"
                 rows={5}
                 placeholder="Örn: Dilekçe şablonu içeriği..."
                 value={formData.content}
                 onChange={(e) => setFormData({ ...formData, content: e.target.value })}
               />
-              <p className="text-[9px] text-on-surface-variant font-medium">
+              <p className="text-[9px] text-on-surface-variant dark:text-slate-400 font-medium">
                 Kullanıcılar sitenizde bu metni tek tıkla kopyalayabilir.
               </p>
             </div>
 
             <div className="space-y-1 flex flex-col">
-              <label className="font-label-caps text-[10px] text-on-surface-variant tracking-wider block font-bold" htmlFor="description">
+              <label className="font-label-caps text-[10px] text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="description">
                 KISA AÇIKLAMA (OPSİYONEL)
               </label>
               <textarea
-                className="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
+                className="w-full px-3 py-2 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
                 id="description"
                 rows={2}
                 placeholder="Kaynak hakkında kısa özet..."
@@ -416,7 +416,7 @@ export default function AdminResourcesPage() {
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="w-full py-2 bg-[#E2E8F0] text-legal-navy font-bold rounded-lg hover:bg-opacity-90 transition-all text-xs"
+                  className="w-full py-2 bg-[#E2E8F0] text-legal-navy dark:text-slate-100 font-bold rounded-lg hover:bg-opacity-90 transition-all text-xs"
                 >
                   İptal Et
                 </button>
@@ -436,15 +436,15 @@ export default function AdminResourcesPage() {
           />
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-xl shadow-xl border border-stone-gray max-w-sm w-full mx-4 overflow-hidden z-10">
+          <div className="relative bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-stone-gray dark:border-slate-700 max-w-sm w-full mx-4 overflow-hidden z-10">
             <div className="p-6">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 shrink-0">
                   <span className="material-symbols-outlined text-[24px]">warning</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-legal-navy text-sm">Kaynağı Sil</h4>
-                  <p className="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                  <h4 className="font-bold text-legal-navy dark:text-slate-100 text-sm">Kaynağı Sil</h4>
+                  <p className="text-xs text-on-surface-variant dark:text-slate-400 mt-1.5 leading-relaxed">
                     Bu kaynağı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.
                   </p>
                 </div>
@@ -452,7 +452,7 @@ export default function AdminResourcesPage() {
               <div className="flex justify-end gap-3">
                 <button
                   onClick={() => setDeleteModal({ isOpen: false, resourceId: null })}
-                  className="px-4 py-2 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy font-semibold text-xs rounded transition-colors"
+                  className="px-4 py-2 bg-[#E2E8F0] hover:bg-opacity-90 text-legal-navy dark:text-slate-100 font-semibold text-xs rounded transition-colors"
                 >
                   İptal
                 </button>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getArticles, getCategories, getProfile, supabase } from '@/lib/supabase';
+import ShareButton from '@/components/ShareButton';
 
 export const revalidate = 0; // Dynamic rendering
 
@@ -75,20 +76,20 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
   const shareUrl = `${siteUrl}/makaleler/${article.slug}`;
 
   return (
-    <div className="pt-20 flex-1">
+    <div className="pt-20 flex-1 bg-[#F8F7F4] dark:bg-slate-900 transition-colors duration-300">
       {/* Breadcrumb & Header Section */}
-      <section className="pt-12 pb-8 bg-white">
+      <section className="pt-12 pb-8 bg-white dark:bg-slate-800 border-b border-stone-gray/30 dark:border-slate-700/60 transition-colors duration-300">
         <div className="max-w-container-max mx-auto px-gutter">
-          <nav className="flex items-center space-x-2 text-stone-gray font-label-caps text-label-caps mb-8">
-            <Link className="hover:text-legal-navy transition-colors" href="/">
+          <nav className="flex items-center space-x-2 text-stone-gray dark:text-slate-400 font-label-caps text-label-caps mb-8">
+            <Link className="hover:text-legal-navy dark:hover:text-slate-200 transition-colors" href="/">
               Anasayfa
             </Link>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
-            <Link className="hover:text-legal-navy transition-colors" href="/makaleler">
+            <Link className="hover:text-legal-navy dark:hover:text-slate-200 transition-colors" href="/makaleler">
               Makaleler
             </Link>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>
-            <span className="text-legal-navy truncate max-w-[200px] md:max-w-none">
+            <span className="text-legal-navy dark:text-slate-100 truncate max-w-[200px] md:max-w-none">
               {article.title}
             </span>
           </nav>
@@ -98,21 +99,21 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 articleCats.map((c: any) => (
                   <span
                     key={c.id}
-                    className="inline-block px-3 py-1 bg-surface-container-low text-legal-navy font-label-caps text-label-caps rounded uppercase font-bold text-xs"
+                    className="inline-block px-3 py-1 bg-surface-container-low dark:bg-slate-900/50 text-legal-navy dark:text-slate-200 font-label-caps text-label-caps rounded uppercase font-bold text-xs border border-stone-gray/30 dark:border-slate-700/50"
                   >
                     {c.name}
                   </span>
                 ))
               ) : (
-                <span className="inline-block px-3 py-1 bg-surface-container-low text-legal-navy font-label-caps text-label-caps rounded uppercase font-bold text-xs">
+                <span className="inline-block px-3 py-1 bg-surface-container-low dark:bg-slate-900/50 text-legal-navy dark:text-slate-200 font-label-caps text-label-caps rounded uppercase font-bold text-xs border border-stone-gray/30 dark:border-slate-700/50">
                   Genel
                 </span>
               )}
             </div>
-            <h1 className="font-display-lg text-display-lg text-legal-navy mb-6 leading-tight font-bold">
+            <h1 className="font-display-lg text-display-lg text-legal-navy dark:text-slate-100 mb-6 leading-tight font-bold transition-colors">
               {article.title}
             </h1>
-            <div className="flex items-center justify-center space-x-6 text-on-surface-variant font-body-md text-body-md">
+            <div className="flex items-center justify-center space-x-6 text-on-surface-variant dark:text-slate-400 font-body-md text-body-md transition-colors">
               <span className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-prestige-gold">calendar_today</span>
                 {new Date(article.published_at || article.created_at).toLocaleDateString('tr-TR', {
@@ -131,53 +132,12 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
       </section>
 
       {/* Article Content Section */}
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-white dark:bg-slate-800 relative transition-colors duration-300">
         <div className="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row gap-gutter">
-          {/* Social Share Floating Sidebar */}
-          <aside className="hidden md:block w-12 shrink-0">
-            <div className="sticky top-28 flex flex-col gap-4 items-center">
-              <span
-                className="font-label-caps text-[10px] text-stone-gray vertical-text uppercase mb-2"
-                style={{ writingMode: 'vertical-rl' }}
-              >
-                Paylaş
-              </span>
-              <a
-                className="w-10 h-10 flex items-center justify-center border border-stone-gray text-legal-navy hover:bg-legal-navy hover:text-white transition-all"
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                  shareUrl
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="LinkedIn'de Paylaş"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
-              </a>
-              {author?.whatsapp_number && (
-                <a
-                  className="w-10 h-10 flex items-center justify-center border border-stone-gray text-legal-navy hover:bg-legal-navy hover:text-white transition-all"
-                  href={`https://wa.me/${author.whatsapp_number.replace(
-                    /[^0-9]/g,
-                    ''
-                  )}?text=${encodeURIComponent(article.title + ' ' + shareUrl)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="WhatsApp'ta Paylaş"
-                >
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.764.468 3.42 1.284 4.884L2 22l5.244-1.284C8.688 21.528 10.32 22 12.012 22 17.544 22 22 17.52 22 12.012 22 6.48 17.544 2 12.012 2zm5.724 13.92c-.24.672-1.38 1.308-1.908 1.38-.492.072-.972.108-3.084-.756-2.58-1.056-4.236-3.672-4.368-3.84-.12-.18-1.044-1.392-1.044-2.652s.648-1.884.888-2.124c.24-.24.528-.3.708-.3h.504c.18 0 .42 0 .648.516.228.528.78 1.908.84 2.028.072.12.108.264.024.42-.084.18-.132.276-.264.432-.132.144-.276.324-.396.444-.132.132-.276.276-.12.54.156.264.696 1.152 1.488 1.86.132.12.252.24.372.336.96.804 1.728.996 2.016 1.092.3.108.48.06.66-.144.18-.204.78-.912.984-1.224.204-.3.408-.252.684-.144.276.108 1.752.828 2.052.972.3.156.504.228.576.36.072.132.072.756-.168 1.428z" />
-                  </svg>
-                </a>
-              )}
-            </div>
-          </aside>
-
           {/* Content Area */}
           <article className="flex-1 max-w-article-max mx-auto">
             {article.image_url && (
-              <div className="mb-12 rounded-xl overflow-hidden border border-stone-gray/60 shadow-lg">
+              <div className="mb-12 rounded-xl overflow-hidden border border-stone-gray/60 dark:border-slate-700/60 shadow-lg">
                 <img
                   src={article.image_url}
                   alt={article.title}
@@ -187,17 +147,27 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
             )}
 
             <div
-              className="article-content font-body-lg text-body-lg text-ink-black leading-relaxed space-y-6 prose prose-stone"
+              className="article-content prose prose-lg prose-stone dark:prose-invert max-w-none w-full whitespace-pre-wrap"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
 
+            {/* Bottom Share Options */}
+            <div className="mt-16 pt-8 border-t border-stone-gray/30 dark:border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <span className="font-headline-sm text-lg text-legal-navy dark:text-slate-200 font-bold">
+                Bu Makaleyi Paylaş
+              </span>
+              <div className="flex items-center gap-4">
+                <ShareButton title={article.title} url={shareUrl} />
+              </div>
+            </div>
+
             {/* Author Card */}
             {author && (
-              <div className="mt-20 p-8 border border-stone-gray bg-[#F8F7F4] flex flex-col md:flex-row items-center gap-8 rounded-lg">
+              <div className="mt-20 p-8 border border-stone-gray dark:border-slate-700/60 bg-[#F8F7F4] dark:bg-slate-900/50 flex flex-col md:flex-row items-center gap-8 rounded-lg">
                 <div className="w-32 h-32 shrink-0 rounded-full overflow-hidden border-2 border-prestige-gold relative">
                   <img
-                    src={author.image_url}
-                    alt={author.full_name}
+                    src="/images/profil2.jpeg"
+                    alt={author.full_name || 'Av. Ramazan Mızrak'}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -205,16 +175,16 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                   <span className="font-label-caps text-label-caps text-prestige-gold mb-2 block font-bold text-xs">
                     YAZAR
                   </span>
-                  <h4 className="font-headline-sm text-headline-sm text-legal-navy mb-2 font-bold">
+                  <h4 className="font-headline-sm text-headline-sm text-legal-navy dark:text-slate-100 mb-2 font-bold">
                     {author.full_name}
                   </h4>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
+                  <p className="font-body-md text-body-md text-on-surface-variant dark:text-slate-400">
                     {author.bio_short}
                   </p>
                   <div className="flex items-center gap-4 mt-4 justify-center md:justify-start">
                     {author.email && (
                       <a
-                        className="text-legal-navy hover:text-prestige-gold transition-colors flex items-center"
+                        className="text-legal-navy dark:text-slate-400 hover:text-prestige-gold dark:hover:text-prestige-gold transition-colors flex items-center"
                         href={`mailto:${author.email}`}
                         title="E-Posta Gönder"
                       >
@@ -223,7 +193,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                     )}
                     {author.linkedin_url && (
                       <a
-                        className="text-legal-navy hover:text-prestige-gold transition-colors flex items-center"
+                        className="text-legal-navy dark:text-slate-400 hover:text-prestige-gold dark:hover:text-prestige-gold transition-colors flex items-center"
                         href={author.linkedin_url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -236,7 +206,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                     )}
                     {author.twitter_url && (
                       <a
-                        className="text-legal-navy hover:text-prestige-gold transition-colors flex items-center"
+                        className="text-legal-navy dark:text-slate-400 hover:text-prestige-gold dark:hover:text-prestige-gold transition-colors flex items-center"
                         href={author.twitter_url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -253,7 +223,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
             )}
 
             {/* Call to Action */}
-            <div className="mt-12 bg-legal-navy p-10 text-center rounded shadow-xl">
+            <div className="mt-12 bg-legal-navy dark:bg-slate-900 p-10 text-center rounded shadow-xl border border-transparent dark:border-slate-700/50">
               <h3 className="font-headline-md text-headline-md text-white mb-4 font-bold">
                 Hukuki Yardıma mı İhtiyacınız Var?
               </h3>
@@ -273,19 +243,19 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
 
       {/* Related Articles */}
       {related.length > 0 && (
-        <section className="py-20 bg-[#F8F7F4] border-t border-stone-gray/30">
+        <section className="py-20 bg-[#F8F7F4] dark:bg-slate-900 border-t border-stone-gray/30 dark:border-slate-700/60 transition-colors duration-300">
           <div className="max-w-container-max mx-auto px-gutter">
             <div className="flex justify-between items-end mb-12">
               <div>
                 <span className="font-label-caps text-label-caps text-prestige-gold mb-2 block uppercase font-bold text-xs">
                   Daha Fazla Oku
                 </span>
-                <h2 className="font-headline-md text-headline-md text-legal-navy font-bold">
+                <h2 className="font-headline-md text-headline-md text-legal-navy dark:text-slate-100 font-bold transition-colors">
                   İlgili Makaleler
                 </h2>
               </div>
               <Link
-                className="hidden md:flex items-center gap-2 text-legal-navy font-bold hover:text-prestige-gold transition-colors text-sm"
+                className="hidden md:flex items-center gap-2 text-legal-navy dark:text-slate-300 font-bold hover:text-prestige-gold dark:hover:text-prestige-gold transition-colors text-sm"
                 href="/makaleler"
               >
                 Tümünü Gör <span className="material-symbols-outlined">arrow_forward</span>
@@ -295,17 +265,17 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
               {related.map((art: any) => (
                 <Link
                   key={art.id}
-                  className="group bg-white border border-stone-gray/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 rounded overflow-hidden flex flex-col"
+                  className="group bg-white dark:bg-slate-800 border border-stone-gray/20 dark:border-slate-700/50 hover:shadow-xl hover:border-prestige-gold dark:hover:border-prestige-gold hover:-translate-y-1 transition-all duration-300 rounded-xl overflow-hidden flex flex-col"
                   href={`/makaleler/${art.slug}`}
                 >
                   <div className="p-6 flex-1 flex flex-col">
                     <span className="font-label-caps text-label-caps text-prestige-gold mb-3 block uppercase font-bold text-xs">
                       {getArticleCategories(art)}
                     </span>
-                    <h3 className="font-headline-sm text-[20px] text-legal-navy group-hover:text-prestige-gold transition-colors leading-snug mb-4 line-clamp-2 font-bold">
+                    <h3 className="font-headline-sm text-[20px] text-legal-navy dark:text-slate-100 group-hover:text-prestige-gold dark:group-hover:text-prestige-gold transition-colors leading-snug mb-4 line-clamp-2 font-bold">
                       {art.title}
                     </h3>
-                    <p className="text-on-surface-variant text-body-md line-clamp-2 mb-4 flex-1">
+                    <p className="text-on-surface-variant dark:text-slate-400 text-body-md line-clamp-2 mb-4 flex-1 transition-colors">
                       {art.summary}
                     </p>
                   </div>

@@ -10,7 +10,7 @@ export default function Footer({ siteTitle, author }: FooterProps) {
   const waNumber = (author?.whatsapp_number || '').replace(/[^0-9]/g, '');
 
   return (
-    <footer className="bg-legal-navy text-white pt-20 pb-10 mt-auto">
+    <footer className="bg-legal-navy dark:bg-slate-950 text-white pt-20 pb-10 mt-auto transition-colors duration-300">
       <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <div className="col-span-1 md:col-span-2">
           <div className="font-headline-md text-headline-md text-prestige-gold mb-6 font-bold">

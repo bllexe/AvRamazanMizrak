@@ -11,11 +11,11 @@ export default async function AdminProfilePage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <header className="pb-6 border-b border-stone-gray/40 shrink-0">
-        <h2 className="font-headline-md text-2xl text-legal-navy font-bold">
+      <header className="pb-6 border-b border-stone-gray/40 dark:border-slate-700/40 shrink-0">
+        <h2 className="font-headline-md text-2xl text-legal-navy dark:text-slate-100 font-bold">
           Avukat Profilini Yönet
         </h2>
-        <p className="text-sm text-on-surface-variant">
+        <p className="text-sm text-on-surface-variant dark:text-slate-400">
           Sitenin hakkımda ve anasayfa bölümlerindeki yazar ve sertifika bilgilerini düzenleyin.
         </p>
       </header>

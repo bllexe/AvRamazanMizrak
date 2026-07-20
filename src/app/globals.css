@@ -5,12 +5,23 @@
 body {
   color: #191c1d;
   background: #F8F7F4;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  color: #f1f5f9;
+  background: #0f172a;
 }
 
 .bg-subtle-pattern {
   background-color: #F8F7F4;
   background-image: radial-gradient(#E2E8F0 0.5px, transparent 0.5px);
   background-size: 24px 24px;
+}
+
+body.dark .bg-subtle-pattern {
+  background-color: #0f172a;
+  background-image: radial-gradient(#334155 0.5px, transparent 0.5px);
 }
 
 /* Material symbols styling */

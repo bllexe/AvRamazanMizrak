@@ -56,7 +56,7 @@ export default function AdminSettingsForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-4xl bg-white border border-stone-gray/60 rounded-xl p-8 shadow-sm space-y-6">
+    <form onSubmit={handleSubmit} className="max-w-4xl bg-white dark:bg-slate-800 border border-stone-gray/60 dark:border-slate-700/60 rounded-xl p-8 shadow-sm space-y-6">
       {success && (
         <div className="bg-green-50 text-green-700 px-4 py-3 rounded-lg text-sm font-semibold flex items-center gap-2 border border-green-200">
           <span className="material-symbols-outlined">check_circle</span>
@@ -65,11 +65,11 @@ export default function AdminSettingsForm({
       )}
 
       <div className="space-y-2 flex flex-col">
-        <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="site_title">
+        <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="site_title">
           WEB SİTE BAŞLIĞI
         </label>
         <input
-          className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
+          className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm"
           id="site_title"
           type="text"
           required
@@ -79,11 +79,11 @@ export default function AdminSettingsForm({
       </div>
 
       <div className="space-y-2 flex flex-col">
-        <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="site_description">
+        <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="site_description">
           SİTE AÇIKLAMASI (SEO VE META AÇIKLAMA GÖSTERİMİ)
         </label>
         <textarea
-          className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
+          className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
           id="site_description"
           required
           rows={4}
@@ -93,11 +93,11 @@ export default function AdminSettingsForm({
       </div>
 
       <div className="space-y-2 flex flex-col">
-        <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="office_address">
+        <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="office_address">
           HUKUK BÜROSU ADRESİ
         </label>
         <textarea
-          className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
+          className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm"
           id="office_address"
           required
           rows={3}
@@ -107,15 +107,15 @@ export default function AdminSettingsForm({
       </div>
 
       {/* Hukuki Belgeler (KVKK, Gizlilik Politikası, Kullanım Koşulları) */}
-      <div className="space-y-6 border-t border-stone-gray/40 pt-6">
-        <h3 className="font-headline-sm text-lg text-legal-navy font-bold">Hukuki Belgeler</h3>
+      <div className="space-y-6 border-t border-stone-gray/40 dark:border-slate-700/40 pt-6">
+        <h3 className="font-headline-sm text-lg text-legal-navy dark:text-slate-100 font-bold">Hukuki Belgeler</h3>
 
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="kvkk">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="kvkk">
             KVKK METNİ
           </label>
           <textarea
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
             id="kvkk"
             rows={8}
             placeholder="Kişisel Verilerin Korunması Kanunu aydınlatma metni..."
@@ -125,11 +125,11 @@ export default function AdminSettingsForm({
         </div>
 
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="privacy">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="privacy">
             GİZLİLİK POLİTİKASI
           </label>
           <textarea
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
             id="privacy"
             rows={8}
             placeholder="Gizlilik politikası metni..."
@@ -139,11 +139,11 @@ export default function AdminSettingsForm({
         </div>
 
         <div className="space-y-2 flex flex-col">
-          <label className="font-label-caps text-xs text-on-surface-variant tracking-wider block font-bold" htmlFor="terms">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold" htmlFor="terms">
             KULLANIM KOŞULLARI
           </label>
           <textarea
-            className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
+            className="w-full px-4 py-3 bg-[#FCFBFA] dark:bg-slate-900/50 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-y text-sm font-sans"
             id="terms"
             rows={8}
             placeholder="Kullanım koşulları metni..."
