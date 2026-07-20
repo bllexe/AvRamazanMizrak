@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+  <%- include('../partials/head', { title: 'Profil Ayarları' }) %>
+  <!-- Quill Editor CSS -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased overflow-hidden h-screen flex">
+
+  <%- include('../partials/admin_sidebar') %>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col h-full overflow-hidden">
+    <!-- Header -->
+    <header class="h-20 bg-white border-b border-stone-gray flex items-center justify-between px-gutter shrink-0">
+      <div>
+        <h2 class="font-headline-sm text-headline-sm text-legal-navy">Avukat Profilini Yönet</h2>
+        <p class="text-nav-link text-on-surface-variant">Sitenin hakkımda ve anasayfa bölümlerindeki yazar ve sertifika bilgilerini düzenleyin.</p>
+      </div>
+    </header>
+
+    <!-- Scrollable Content -->
+    <div class="flex-1 overflow-y-auto p-gutter space-y-8">
+      
+      <!-- Card 1: Lawyer Profile Form -->
+      <form action="/admin/profile" method="POST" id="profileForm" class="max-w-4xl bg-white border border-stone-gray rounded-xl p-8 shadow-sm space-y-6">
+        <h3 class="font-headline-sm text-lg text-legal-navy border-b border-stone-gray pb-3">Profil Bilgileri</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="full_name">AVUKAT AD SOYAD</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="full_name" name="full_name" type="text" value="<%= profile?.full_name %>" required />
+          </div>
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="title">UNVAN</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="title" name="title" type="text" value="<%= profile?.title %>" required />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="bar_number">BARO SİCİL NO</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="bar_number" name="bar_number" type="text" value="<%= profile?.bar_number %>" required />
+          </div>
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="experience_years">DENEYİM YILI</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="experience_years" name="experience_years" type="number" value="<%= profile?.experience_years %>" required />
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="specializations">UZMANLIK ALANLARI (JSON VEYA VİRGÜLLE AYRILMIŞ LİSTE)</label>
+          <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="specializations" name="specializations" type="text" value="<%= typeof profile?.specializations === 'object' ? JSON.stringify(profile.specializations) : profile?.specializations %>" required />
+          <p class="text-[10px] text-on-surface-variant">Örnek: ["Şirketler Hukuku", "Ceza Hukuku", "KVKK"]</p>
+        </div>
+
+        <div class="space-y-2">
+          <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="bio_short">KISA ÖZGEÇMİŞ (ANASAYFA REHBER METNİ)</label>
+          <textarea class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none resize-none text-sm" id="bio_short" name="bio_short" required rows="3"><%= profile?.bio_short %></textarea>
+        </div>
+
+        <!-- Quill Rich Editor Container for Bio Long -->
+        <div class="space-y-2">
+          <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block">DETAYLI ÖZGEÇMİŞ (HAKKIMDA SAYFASI)</label>
+          <div id="editor-container" class="h-64 bg-white border border-[#DEDCD7] rounded-lg"><%- profile?.bio_long %></div>
+          <input type="hidden" name="bio_long" id="hiddenBioLong">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="email">E-POSTA ADRESİ</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="email" name="email" type="email" value="<%= profile?.email %>" required />
+          </div>
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="phone">TELEFON HATI</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="phone" name="phone" type="text" value="<%= profile?.phone %>" required />
+          </div>
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="whatsapp_number">WHATSAPP HATI (GÖRSEL BUTON)</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="whatsapp_number" name="whatsapp_number" type="text" value="<%= profile?.whatsapp_number %>" required />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="linkedin_url">LINKEDIN URL</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="linkedin_url" name="linkedin_url" type="text" value="<%= profile?.linkedin_url %>" />
+          </div>
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="twitter_url">TWITTER URL</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="twitter_url" name="twitter_url" type="text" value="<%= profile?.twitter_url %>" />
+          </div>
+          <div class="space-y-2">
+            <label class="font-label-caps text-xs text-on-surface-variant tracking-wider block" for="instagram_url">INSTAGRAM URL</label>
+            <input class="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-sm" id="instagram_url" name="instagram_url" type="text" value="<%= profile?.instagram_url %>" />
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-stone-gray">
+          <button class="w-full py-3.5 bg-legal-navy text-white font-bold rounded-lg hover:bg-opacity-95 transition-all flex items-center justify-center gap-2 group shadow-md text-xs uppercase tracking-wider" type="submit">
+            Profil Bilgilerini Kaydet
+            <span class="material-symbols-outlined text-prestige-gold group-hover:translate-x-1 transition-transform text-[18px]">save</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Card 2: Certifications Management -->
+      <div class="max-w-4xl grid grid-cols-1 lg:grid-cols-3 gap-6 pb-12">
+        <!-- Certifications List (2/3 width) -->
+        <div class="lg:col-span-2 bg-white border border-stone-gray rounded-xl p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="font-headline-sm text-lg text-legal-navy mb-1">Sertifikalar & Eğitimler</h3>
+            <p class="text-xs text-on-surface-variant mb-4">Hakkımda sayfasında listelenen mesleki sertifika ve eğitim bilgilerinizi yönetin.</p>
+          </div>
+          
+          <div class="overflow-x-auto flex-1">
+            <table class="w-full text-left text-sm">
+              <thead>
+                <tr class="bg-surface-container-low text-on-surface-variant text-[11px] uppercase font-bold tracking-wider">
+                  <th class="px-4 py-3 border-b border-stone-gray">Sıra</th>
+                  <th class="px-4 py-3 border-b border-stone-gray">Sertifika / Eğitim Adı</th>
+                  <th class="px-4 py-3 border-b border-stone-gray">Veren Kurum</th>
+                  <th class="px-4 py-3 border-b border-stone-gray">Tarih</th>
+                  <th class="px-4 py-3 border-b border-stone-gray text-right">İşlemler</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-gray">
+                <% if (certifications && certifications.length > 0) { %>
+                  <% certifications.forEach(cert => { %>
+                    <tr class="hover:bg-surface-container-low transition-colors">
+                      <td class="px-4 py-3 text-xs font-semibold text-legal-navy"><%= cert.display_order %></td>
+                      <td class="px-4 py-3 font-bold text-legal-navy text-xs"><%= cert.title %></td>
+                      <td class="px-4 py-3 text-xs text-on-surface-variant"><%= cert.issuer %></td>
+                      <td class="px-4 py-3 text-xs text-on-surface-variant">
+                        <%= cert.date_obtained ? new Date(cert.date_obtained).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long' }) : '' %>
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <div class="flex items-center justify-end gap-2">
+                          <button type="button"
+                                  data-id="<%= cert.id %>"
+                                  data-title="<%= cert.title %>"
+                                  data-issuer="<%= cert.issuer %>"
+                                  data-date="<%= cert.date_obtained ? cert.date_obtained.substring(0, 10) : '' %>"
+                                  data-order="<%= cert.display_order %>"
+                                  onclick="editCert(this)"
+                                  class="text-legal-navy hover:text-prestige-gold transition-colors flex items-center" 
+                                  title="Düzenle">
+                            <span class="material-symbols-outlined text-[18px]">edit</span>
+                          </button>
+                          <form action="/admin/profile/certifications/delete/<%= cert.id %>" method="POST" class="inline">
+                            <button type="button" onclick="showDeleteModal(this.closest('form'), 'Sertifikayı Sil', 'Bu sertifikayı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')" class="text-error hover:bg-error-container p-1 rounded transition-colors flex items-center" title="Sil">
+                              <span class="material-symbols-outlined text-[18px]">delete</span>
+                            </button>
+                          </form>
+                        </div>
+                      </td>
+                    </tr>
+                  <% }) %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="5" class="text-center py-8 text-on-surface-variant text-xs">Sertifika veya eğitim kaydı bulunmamaktadır.</td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Certifications Form (1/3 width) -->
+        <div class="bg-white border border-stone-gray rounded-xl p-6 shadow-sm space-y-4">
+          <div>
+            <h4 class="font-bold text-legal-navy text-sm" id="certFormTitle">Yeni Sertifika Ekle</h4>
+            <p class="text-[10px] text-on-surface-variant mt-0.5">Sertifika bilgilerini girerek kaydediniz.</p>
+          </div>
+
+          <form action="/admin/profile/certifications/create" method="POST" id="certForm" class="space-y-3">
+            <div class="space-y-1">
+              <label class="font-label-caps text-[9px] text-on-surface-variant tracking-wider block" for="cert_title">SERTİFİKA / EĞİTİM ADI</label>
+              <input class="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs" id="cert_title" name="title" type="text" placeholder="Örn: KVKK Uzmanlık Sertifikası" required />
+            </div>
+
+            <div class="space-y-1">
+              <label class="font-label-caps text-[9px] text-on-surface-variant tracking-wider block" for="cert_issuer">VEREN KURUM</label>
+              <input class="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs" id="cert_issuer" name="issuer" type="text" placeholder="Örn: Türkiye Barolar Birliği" required />
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div class="space-y-1">
+                <label class="font-label-caps text-[9px] text-on-surface-variant tracking-wider block" for="cert_date">ALINDIĞI TARİH</label>
+                <input class="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs" id="cert_date" name="date_obtained" type="date" required />
+              </div>
+
+              <div class="space-y-1">
+                <label class="font-label-caps text-[9px] text-on-surface-variant tracking-wider block" for="cert_order">SIRA NO</label>
+                <input class="w-full px-3 py-2 bg-[#FCFBFA] border border-[#DEDCD7] rounded focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs" id="cert_order" name="display_order" type="number" value="0" required />
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-col gap-2">
+              <button class="w-full py-2 bg-legal-navy text-white font-bold rounded hover:bg-opacity-95 transition-all text-xs" type="submit">
+                Kaydet
+              </button>
+              <button type="button" id="certCancelBtn" onclick="cancelCertEdit()" class="w-full py-1.5 bg-stone-gray text-legal-navy font-bold rounded hover:bg-opacity-90 transition-all text-xs hidden">
+                İptal Et
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Custom Delete Confirmation Modal -->
+  <div id="deleteModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-[#1A2B3C] bg-opacity-40 backdrop-blur-sm"></div>
+    
+    <!-- Modal Content -->
+    <div class="relative bg-white rounded-xl shadow-xl border border-stone-gray max-w-sm w-full mx-4 overflow-hidden transform scale-95 opacity-0 transition-all duration-300 ease-out" id="deleteModalContent">
+      <div class="p-6">
+        <div class="flex items-start gap-4 mb-6">
+          <div class="w-10 h-10 rounded-full bg-[#FDF2F2] flex items-center justify-center text-error shrink-0">
+            <span class="material-symbols-outlined text-[24px]">warning</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-legal-navy text-sm" id="deleteModalTitle">Silme İşlemini Onayla</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed" id="deleteModalMessage">Bu ögeyi silmek istediğinize emin misiniz? Bu işlem geri alınamaz.</p>
+          </div>
+        </div>
+        <div class="flex justify-end gap-3">
+          <button onclick="closeDeleteModal()" class="px-4 py-2 bg-stone-gray hover:bg-opacity-90 text-legal-navy font-semibold text-xs rounded transition-colors">
+            İptal
+          </button>
+          <button id="confirmDeleteBtn" class="px-4 py-2 bg-error hover:bg-opacity-95 text-white font-semibold text-xs rounded transition-colors">
+            Evet, Sil
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quill Rich Editor JS -->
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script>
+    // Quill Initializer
+    var quill = new Quill('#editor-container', {
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          [{ 'header': [1, 2, 3, false] }],
+          ['bold', 'italic', 'underline', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}],
+          ['link', 'clean']
+        ]
+      }
+    });
+
+    var form = document.getElementById('profileForm');
+    form.onsubmit = function() {
+      var bioLongInput = document.getElementById('hiddenBioLong');
+      bioLongInput.value = quill.root.innerHTML;
+      return true;
+    };
+
+    // Certifications Edit Handlers
+    function editCert(btn) {
+      const id = btn.getAttribute('data-id');
+      const title = btn.getAttribute('data-title');
+      const issuer = btn.getAttribute('data-issuer');
+      const date = btn.getAttribute('data-date');
+      const order = btn.getAttribute('data-order');
+
+      document.getElementById('certFormTitle').innerText = 'Sertifikayı Düzenle';
+      document.getElementById('certForm').action = '/admin/profile/certifications/edit/' + id;
+      document.getElementById('cert_title').value = title;
+      document.getElementById('cert_issuer').value = issuer;
+      document.getElementById('cert_date').value = date;
+      document.getElementById('cert_order').value = order;
+      document.getElementById('certCancelBtn').classList.remove('hidden');
+    }
+
+    function cancelCertEdit() {
+      document.getElementById('certFormTitle').innerText = 'Yeni Sertifika Ekle';
+      document.getElementById('certForm').action = '/admin/profile/certifications/create';
+      document.getElementById('certForm').reset();
+      document.getElementById('cert_order').value = '0';
+      document.getElementById('certCancelBtn').classList.add('hidden');
+    }
+
+    // Delete Modal Handlers
+    let formToSubmit = null;
+
+    function showDeleteModal(formElement, title, message) {
+      formToSubmit = formElement;
+      if (title) document.getElementById('deleteModalTitle').innerText = title;
+      if (message) document.getElementById('deleteModalMessage').innerText = message;
+      
+      const modal = document.getElementById('deleteModal');
+      const content = document.getElementById('deleteModalContent');
+      
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeDeleteModal() {
+      const content = document.getElementById('deleteModalContent');
+      content.classList.remove('scale-100', 'opacity-100');
+      content.classList.add('scale-95', 'opacity-0');
+      
+      setTimeout(() => {
+        document.getElementById('deleteModal').classList.add('hidden');
+        formToSubmit = null;
+      }, 300);
+    }
+
+    document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+      if (formToSubmit) {
+        formToSubmit.submit();
+      }
+    });
+  </script>
+</body>
+</html>

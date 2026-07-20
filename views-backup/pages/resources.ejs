@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="tr">
+<head>
+  <%- include('../partials/head', { title: 'Kaynaklar & Dokümanlar' }) %>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-prestige-gold selection:text-white flex flex-col min-h-screen">
+  
+  <%- include('../partials/header') %>
+
+  <main class="pt-20 flex-1">
+    <!-- Page Header -->
+    <section class="pt-12 pb-8 bg-white">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <nav class="flex items-center space-x-2 text-stone-gray font-label-caps text-label-caps mb-6">
+          <a class="hover:text-legal-navy transition-colors" href="/">Anasayfa</a>
+          <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+          <span class="text-legal-navy">Kaynaklar</span>
+        </nav>
+        <div class="max-w-2xl">
+          <span class="font-label-caps text-label-caps text-prestige-gold block mb-2">FAYDALI DOKÜMANLAR</span>
+          <h1 class="font-display-lg text-display-lg text-legal-navy mb-4">Hukuki Kaynaklar & İndirmeler</h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">Süreçlerinizi kolaylaştıracak kılavuzlar, kontrol listeleri ve hukuki sözleşme şablonlarını ücretsiz indirin.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Listing -->
+    <section class="py-section-gap">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <% if (resources && resources.length > 0) { %>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <% resources.forEach(res => { %>
+              <div class="bg-white border border-stone-gray p-8 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 bg-background border border-stone-gray rounded flex items-center justify-center text-prestige-gold">
+                      <span class="material-symbols-outlined">description</span>
+                    </span>
+                    <span class="text-xs font-bold text-prestige-gold uppercase tracking-wider bg-background px-2.5 py-1 rounded">
+                      <%= res.category === 'guide' ? 'Kılavuz' : (res.category === 'template' ? 'Şablon' : 'Doküman') %>
+                    </span>
+                  </div>
+                  <h3 class="font-headline-sm text-xl text-legal-navy mb-2"><%= res.title %></h3>
+                  <p class="text-sm text-on-surface-variant mb-6"><%= res.description %></p>
+                </div>
+                
+                <div class="flex items-center justify-between border-t border-stone-gray/60 pt-4 mt-6">
+                  <span class="text-xs text-on-surface-variant font-medium">
+                    <% if (res.file_url) { %>
+                      Boyut: <%= res.file_size ? (res.file_size / 1024).toFixed(1) + ' KB' : 'Bilinmiyor' %> | İndirme: <%= res.download_count || 0 %>
+                    <% } else { %>
+                      Görünüm: <%= res.download_count || 0 %>
+                    <% } %>
+                  </span>
+                  <% if (res.file_url) { %>
+                    <a href="/kaynaklar/<%= res.id %>/download" class="flex items-center gap-2 bg-legal-navy text-white px-5 py-2 rounded font-semibold text-xs hover:bg-opacity-90 transition-all">
+                      <span class="material-symbols-outlined text-[16px]">download</span> İndir
+                    </a>
+                  <% } else if (res.content) { %>
+                    <button type="button" 
+                            data-id="<%= res.id %>"
+                            data-title="<%= res.title %>"
+                            data-content="<%= res.content %>"
+                            onclick="openTemplateModal(this)"
+                            class="flex items-center gap-2 bg-prestige-gold text-white px-5 py-2.5 rounded font-semibold text-xs hover:bg-opacity-90 transition-all shadow-sm">
+                      <span class="material-symbols-outlined text-[16px]">content_copy</span> İncele & Kopyala
+                    </button>
+                  <% } else { %>
+                    <span class="text-xs text-stone-400">Detay yok</span>
+                  <% } %>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        <% } else { %>
+          <div class="text-center py-20 bg-white border border-stone-gray rounded-xl">
+            <span class="material-symbols-outlined text-5xl text-stone-gray mb-4">folder_off</span>
+            <h3 class="font-headline-sm text-legal-navy text-xl">Doküman Bulunmamaktadır</h3>
+            <p class="text-on-surface-variant mt-2">Henüz indirilebilir kaynak yüklenmemiştir.</p>
+          </div>
+        <% } %>
+      </div>
+    </section>
+  </main>
+
+  <!-- Petition Template View Modal -->
+  <div id="templateModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-[#1A2B3C] bg-opacity-40 backdrop-blur-sm" onclick="closeTemplateModal()"></div>
+    
+    <!-- Modal Content -->
+    <div class="relative bg-white rounded-xl shadow-2xl border border-stone-gray max-w-2xl w-full mx-4 overflow-hidden transform scale-95 opacity-0 transition-all duration-300 ease-out flex flex-col max-h-[85vh]">
+      <!-- Header -->
+      <div class="p-6 border-b border-stone-gray flex items-center justify-between shrink-0 bg-surface-container-low">
+        <div>
+          <h3 class="font-headline-sm text-lg text-legal-navy" id="templateModalTitle">Dilekçe Şablonu</h3>
+          <p class="text-xs text-on-surface-variant mt-0.5">Aşağıdaki metni kopyalayarak düzenleyebilirsiniz.</p>
+        </div>
+        <button onclick="closeTemplateModal()" class="text-on-surface-variant hover:text-legal-navy transition-colors flex items-center">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      
+      <!-- Body -->
+      <div class="p-6 overflow-y-auto flex-1 bg-[#FAF9F6]">
+        <pre id="templateModalBody" class="text-xs text-legal-navy font-mono leading-relaxed whitespace-pre-wrap select-text p-4 bg-white border border-stone-gray rounded-lg"></pre>
+      </div>
+      
+      <!-- Footer -->
+      <div class="p-6 border-t border-stone-gray flex justify-end gap-3 shrink-0 bg-white">
+        <button onclick="closeTemplateModal()" class="px-5 py-2.5 bg-stone-gray hover:bg-opacity-90 text-legal-navy font-semibold text-xs rounded transition-colors">
+          Kapat
+        </button>
+        <button id="copyTemplateBtn" onclick="copyTemplateText()" class="px-5 py-2.5 bg-legal-navy hover:bg-opacity-95 text-white font-semibold text-xs rounded transition-colors flex items-center gap-2">
+          <span class="material-symbols-outlined text-[16px]" id="copyBtnIcon">content_copy</span>
+          <span id="copyBtnText">Kopyala</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let activeResourceId = null;
+
+    function openTemplateModal(btn) {
+      const id = btn.getAttribute('data-id');
+      const title = btn.getAttribute('data-title');
+      const content = btn.getAttribute('data-content');
+      
+      activeResourceId = id;
+      
+      document.getElementById('templateModalTitle').innerText = title;
+      document.getElementById('templateModalBody').innerText = content;
+      
+      const modal = document.getElementById('templateModal');
+      const modalContent = modal.querySelector('.relative');
+      
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+
+      // Fetch to increment views/downloads counter
+      fetch(`/kaynaklar/${id}/download`)
+        .catch(err => console.error('Failed to increment view counter', err));
+    }
+
+    function closeTemplateModal() {
+      const modal = document.getElementById('templateModal');
+      if (modal.classList.contains('hidden')) return;
+
+      const modalContent = modal.querySelector('.relative');
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        // Reset copy button state
+        document.getElementById('copyBtnText').innerText = 'Kopyala';
+        document.getElementById('copyBtnIcon').innerText = 'content_copy';
+      }, 300);
+    }
+
+    function copyTemplateText() {
+      const contentText = document.getElementById('templateModalBody').innerText;
+      
+      navigator.clipboard.writeText(contentText).then(() => {
+        const copyBtnText = document.getElementById('copyBtnText');
+        const copyBtnIcon = document.getElementById('copyBtnIcon');
+        
+        copyBtnText.innerText = 'Kopyalandı!';
+        copyBtnIcon.innerText = 'check';
+        
+        setTimeout(() => {
+          copyBtnText.innerText = 'Kopyala';
+          copyBtnIcon.innerText = 'content_copy';
+        }, 2000);
+      }).catch(err => {
+        console.error('Kopyalama hatası:', err);
+        alert('Panoya kopyalanırken bir hata oluştu.');
+      });
+    }
+  </script>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

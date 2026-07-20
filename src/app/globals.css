@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #191c1d;
+  background: #F8F7F4;
+}
+
+.bg-subtle-pattern {
+  background-color: #F8F7F4;
+  background-image: radial-gradient(#E2E8F0 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+/* Material symbols styling */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Hide scrollbars but keep functionality */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

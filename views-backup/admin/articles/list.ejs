@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+  <%- include('../../partials/head', { title: 'Makaleler - Yönetim' }) %>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased overflow-hidden h-screen flex">
+
+  <%- include('../../partials/admin_sidebar') %>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col h-full overflow-hidden">
+    <!-- Header -->
+    <header class="h-20 bg-white border-b border-stone-gray flex items-center justify-between px-gutter shrink-0">
+      <div>
+        <h2 class="font-headline-sm text-headline-sm text-legal-navy">Makaleleri Yönet</h2>
+        <p class="text-nav-link text-on-surface-variant">Blog içeriklerinizi yayınlayın, güncelleyin veya silin.</p>
+      </div>
+      <div>
+        <a href="/admin/articles/create" class="bg-legal-navy text-white px-6 py-2.5 rounded-lg font-nav-link hover:bg-ink-black transition-all flex items-center text-sm font-semibold shadow">
+          <span class="material-symbols-outlined mr-2 text-[20px]">add</span>
+          Yeni Makale Ekle
+        </a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto p-gutter">
+      <section class="bg-white border border-stone-gray rounded shadow-[0_4px_20px_rgba(26,43,60,0.04)] overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="bg-surface-container-low text-on-surface-variant text-[11px] uppercase font-bold tracking-wider">
+                <th class="px-6 py-4 border-b border-stone-gray">Başlık</th>
+                <th class="px-6 py-4 border-b border-stone-gray">Kategori</th>
+                <th class="px-6 py-4 border-b border-stone-gray">Yayın/Taslak Tarihi</th>
+                <th class="px-6 py-4 border-b border-stone-gray">Okunma</th>
+                <th class="px-6 py-4 border-b border-stone-gray">Durum</th>
+                <th class="px-6 py-4 border-b border-stone-gray text-right">İşlemler</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-gray">
+              <% if (articles && articles.length > 0) { %>
+                <% articles.forEach(art => { %>
+                  <tr class="hover:bg-surface-container-low transition-colors">
+                    <td class="px-6 py-4 max-w-sm">
+                      <div class="font-bold text-legal-navy text-sm truncate"><%= art.title %></div>
+                      <div class="text-xs text-on-surface-variant truncate mt-0.5"><%= art.summary %></div>
+                    </td>
+                    <td class="px-6 py-4">
+                      <div class="flex flex-wrap gap-1">
+                        <% if (art.categories && art.categories.length > 0) { %>
+                          <% art.categories.forEach(c => { %>
+                            <span class="bg-stone-gray px-2 py-0.5 rounded text-[10px] font-bold text-legal-navy"><%= c.name %></span>
+                          <% }) %>
+                        <% } else { %>
+                          <span class="bg-stone-gray px-2 py-0.5 rounded text-[10px] font-bold text-legal-navy">Genel</span>
+                        <% } %>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-xs text-on-surface-variant">
+                      <%= new Date(art.published_at || art.created_at).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                    </td>
+                    <td class="px-6 py-4 text-xs text-on-surface-variant">
+                      <%= art.view_count || 0 %>
+                    </td>
+                    <td class="px-6 py-4">
+                      <% if (art.status === 'published') { %>
+                        <span class="flex items-center text-[11px] text-green-700 font-semibold">
+                          <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1.5 animate-pulse"></span> Yayında
+                        </span>
+                      <% } else { %>
+                        <span class="flex items-center text-[11px] text-prestige-gold font-semibold">
+                          <span class="w-1.5 h-1.5 bg-prestige-gold rounded-full mr-1.5"></span> Taslak
+                        </span>
+                      <% } %>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                      <div class="flex items-center justify-end gap-3">
+                        <a href="/admin/articles/edit/<%= art.id %>" class="text-legal-navy hover:text-prestige-gold transition-colors flex items-center">
+                          <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </a>
+                        <form action="/admin/articles/delete/<%= art.id %>" method="POST" class="inline">
+                          <button type="button" onclick="showDeleteModal(this.closest('form'), 'Makaleyi Sil', 'Bu makaleyi silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')" class="text-error hover:bg-error-container p-1 rounded transition-colors flex items-center">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                          </button>
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+                <% }) %>
+              <% } else { %>
+                <tr>
+                  <td colspan="6" class="text-center py-12 text-on-surface-variant text-sm">Makale bulunmamaktadır.</td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Custom Delete Confirmation Modal -->
+  <div id="deleteModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-[#1A2B3C] bg-opacity-40 backdrop-blur-sm"></div>
+    
+    <!-- Modal Content -->
+    <div class="relative bg-white rounded-xl shadow-xl border border-stone-gray max-w-sm w-full mx-4 overflow-hidden transform scale-95 opacity-0 transition-all duration-300 ease-out" id="deleteModalContent">
+      <div class="p-6">
+        <div class="flex items-start gap-4 mb-6">
+          <div class="w-10 h-10 rounded-full bg-[#FDF2F2] flex items-center justify-center text-error shrink-0">
+            <span class="material-symbols-outlined text-[24px]">warning</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-legal-navy text-sm" id="deleteModalTitle">Silme İşlemini Onayla</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed" id="deleteModalMessage">Bu ögeyi silmek istediğinize emin misiniz? Bu işlem geri alınamaz.</p>
+          </div>
+        </div>
+        <div class="flex justify-end gap-3">
+          <button onclick="closeDeleteModal()" class="px-4 py-2 bg-stone-gray hover:bg-opacity-90 text-legal-navy font-semibold text-xs rounded transition-colors">
+            İptal
+          </button>
+          <button id="confirmDeleteBtn" class="px-4 py-2 bg-error hover:bg-opacity-95 text-white font-semibold text-xs rounded transition-colors">
+            Evet, Sil
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let formToSubmit = null;
+
+    function showDeleteModal(formElement, title, message) {
+      formToSubmit = formElement;
+      if (title) document.getElementById('deleteModalTitle').innerText = title;
+      if (message) document.getElementById('deleteModalMessage').innerText = message;
+      
+      const modal = document.getElementById('deleteModal');
+      const content = document.getElementById('deleteModalContent');
+      
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeDeleteModal() {
+      const content = document.getElementById('deleteModalContent');
+      content.classList.remove('scale-100', 'opacity-100');
+      content.classList.add('scale-95', 'opacity-0');
+      
+      setTimeout(() => {
+        document.getElementById('deleteModal').classList.add('hidden');
+        formToSubmit = null;
+      }, 300);
+    }
+
+    document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+      if (formToSubmit) {
+        formToSubmit.submit();
+      }
+    });
+  </script>
+</body>
+</html>

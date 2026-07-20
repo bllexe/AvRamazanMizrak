@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="tr">
+<head>
+  <%- include('../partials/head', { title: document.type === 'kvkk' ? 'KVKK Aydınlatma Metni' : (document.type === 'privacy' ? 'Gizlilik Politikası' : 'Kullanım Koşulları') }) %>
+  <style>
+    .legal-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #1A2B3C;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .legal-content p {
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+      color: #191c1d;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-prestige-gold selection:text-white flex flex-col min-h-screen">
+  
+  <%- include('../partials/header') %>
+
+  <main class="pt-20 flex-1">
+    <section class="py-16 bg-white">
+      <div class="max-w-article-max mx-auto px-gutter">
+        <nav class="flex items-center space-x-2 text-stone-gray font-label-caps text-label-caps mb-8">
+          <a class="hover:text-legal-navy transition-colors" href="/">Anasayfa</a>
+          <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+          <span class="text-legal-navy">Yasal Metinler</span>
+        </nav>
+
+        <article class="prose max-w-none">
+          <span class="text-xs font-bold text-prestige-gold uppercase tracking-wider block mb-2">
+            Son Güncelleme: <%= new Date(document.last_updated).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' }) %>
+          </span>
+          <div class="legal-content">
+            <%- document.content %>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

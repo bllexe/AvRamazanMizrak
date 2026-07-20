@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="tr">
+<head>
+  <%- include('../partials/head', { title: 'Anasayfa' }) %>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-prestige-gold selection:text-white flex flex-col min-h-screen">
+  
+  <%- include('../partials/header') %>
+
+  <main class="pt-20 flex-1">
+    <!-- Hero Section -->
+    <section class="relative py-16 md:py-24 overflow-hidden bg-subtle-pattern border-b border-stone-gray/40">
+      <div class="max-w-container-max mx-auto px-gutter relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Text Area -->
+          <div class="lg:col-span-7 space-y-6">
+            <span class="font-label-caps text-label-caps text-prestige-gold block tracking-widest">PRESTİJLİ HUKUKİ ÇÖZÜMLER</span>
+            <h1 class="font-display-lg text-display-lg text-legal-navy leading-tight">
+              Hukukta Güven, Deneyim ve Profesyonel Yaklaşım
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-xl">
+              <%= author?.bio_short || 'Karmaşık hukuki süreçlerinizi stratejik bir bakış açısıyla yönetiyoruz. 10 yılı aşkın tecrübe ile her vakada mutlak titizlik ve şeffaflık önceliğimizdir.' %>
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="/iletisim" class="bg-legal-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-opacity-95 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg hover:shadow-legal-navy/10">
+                Randevu Talep Et
+              </a>
+              <a href="/hakkimda" class="border border-[#DEDCD7] hover:border-prestige-gold text-legal-navy px-8 py-4 rounded-lg font-bold hover:bg-white transition-all">
+                Hakkımızda Daha Fazlası
+              </a>
+            </div>
+          </div>
+          <!-- Graphic / Visual Column -->
+          <div class="lg:col-span-5 relative hidden lg:block">
+            <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-stone-gray/80 shadow-2xl bg-white">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdFMptAbNELibo1aqWndICShCQWU2NEf1FJGgyM7yTzC6SZNLPhdvm0zS1SU-l5hsM242AZ-WCF972rbnsZJlMTuLG1VId6gLiNgq5PJmgPSZY9y6zcB-R72OFotu4OM0aW39WL4FCwOoZF036H-OLbF8D6gp0ccokSMYSWyw2QA5lcST344qgUwhn5Tuo4edtOyRQCdaH-3L1Mt80SfBNMyXBCT8dalcIX5vj0KpUr1gaXrq3-KlysiNe7xETr2DEN7y9bmJp7H4P')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-legal-navy/20 to-transparent"></div>
+            </div>
+            <!-- Decorative badge overlay -->
+            <div class="absolute -bottom-6 -left-6 bg-white border border-[#DEDCD7] p-4 rounded-lg shadow-xl flex items-center gap-3">
+              <span class="material-symbols-outlined text-prestige-gold text-3xl">gavel</span>
+              <div>
+                <p class="text-xs font-bold text-legal-navy uppercase tracking-wider">Av. Ramazan Hoca</p>
+                <p class="text-[10px] text-on-surface-variant">Kurucu Hukukçu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bio / Hakkımda Section -->
+    <% if (author) { %>
+      <section class="py-20 bg-white">
+        <div class="max-w-container-max mx-auto px-gutter">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <!-- Left: Profile Image & Stats Grid -->
+            <div class="lg:col-span-5 space-y-6">
+              <div class="w-full aspect-[4/5] bg-stone-gray overflow-hidden shadow-xl rounded-lg border border-stone-gray/60 relative">
+                <img src="<%= author.image_url %>" alt="<%= author.full_name %>" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-legal-navy/10 to-transparent"></div>
+              </div>
+              
+              <!-- Stats Bento Widgets -->
+              <div class="grid grid-cols-2 gap-4">
+                <div class="p-5 bg-background border border-[#DEDCD7] rounded-lg hover:border-prestige-gold transition-colors flex flex-col justify-between">
+                  <span class="material-symbols-outlined text-prestige-gold mb-2 text-[28px]">workspace_premium</span>
+                  <div>
+                    <span class="block text-2xl font-bold text-legal-navy leading-none mb-1">10+ Yıl</span>
+                    <span class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">Mesleki Tecrübe</span>
+                  </div>
+                </div>
+                <div class="p-5 bg-background border border-[#DEDCD7] rounded-lg hover:border-prestige-gold transition-colors flex flex-col justify-between">
+                  <span class="material-symbols-outlined text-prestige-gold mb-2 text-[28px]">gavel</span>
+                  <div>
+                    <span class="block text-xl font-bold text-legal-navy leading-none mb-1"><%= author.bar_number || 'Aktif' %></span>
+                    <span class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-wider">Baro Sicil No</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right: Bio Content -->
+            <div class="lg:col-span-7 space-y-6">
+              <span class="font-label-caps text-label-caps text-prestige-gold uppercase block tracking-wider">Avukat Profili</span>
+              <h2 class="font-headline-md text-headline-md text-legal-navy"><%= author.full_name %></h2>
+              <p class="font-label-caps text-sm text-prestige-gold tracking-widest border-b border-stone-gray/40 pb-4"><%= author.title %> | Türkiye Barolar Birliği</p>
+              <div class="font-body-lg text-body-lg text-on-surface-variant space-y-4 leading-relaxed">
+                <%- author.bio_long %>
+              </div>
+              <div class="pt-4 flex gap-6">
+                <a href="/hakkimda" class="inline-flex items-center gap-2 text-prestige-gold font-bold hover:text-legal-navy transition-colors group">
+                  Eğitim ve Sertifikalarımı İnceleyin 
+                  <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% } %>
+
+    <!-- Articles Bento Grid -->
+    <section class="py-20 bg-background border-t border-stone-gray/40">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="flex justify-between items-center mb-12">
+          <div>
+            <span class="font-label-caps text-label-caps text-prestige-gold block mb-2">GÜNCEL HUKUKİ YAZILARIMIZ</span>
+            <h2 class="font-headline-md text-headline-md text-legal-navy font-bold">Makaleler & Analizler</h2>
+          </div>
+          <!-- Slider Navigation & Show All Link -->
+          <div class="flex items-center gap-4">
+            <a href="/makaleler" class="hidden sm:flex items-center gap-2 text-legal-navy font-bold hover:text-prestige-gold transition-colors text-sm mr-2">
+              Tümünü Gör <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+            <div class="flex items-center gap-2">
+              <button id="slideLeftBtn" class="w-10 h-10 border border-stone-gray/60 rounded-full flex items-center justify-center text-legal-navy hover:border-prestige-gold hover:text-prestige-gold transition-all bg-white shadow-sm hover:shadow active:scale-95">
+                <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+              </button>
+              <button id="slideRightBtn" class="w-10 h-10 border border-stone-gray/60 rounded-full flex items-center justify-center text-legal-navy hover:border-prestige-gold hover:text-prestige-gold transition-all bg-white shadow-sm hover:shadow active:scale-95">
+                <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <% if (articles && articles.length > 0) { %>
+          <!-- Horizontal scrollable slider -->
+          <div id="articlesSlider" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none py-4 -my-4">
+            <% articles.forEach(art => { %>
+              <article class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start bg-white border border-stone-gray/60 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span class="font-label-caps text-[10px] text-prestige-gold mb-2 block uppercase tracking-wider">
+                      <%= art.categories && art.categories.length > 0 ? art.categories.map(c => c.name).join(' / ') : 'Genel' %>
+                    </span>
+                    <h3 class="font-headline-sm text-lg text-legal-navy mb-3 line-clamp-2 hover:text-prestige-gold transition-colors font-bold">
+                      <a href="/makaleler/<%= art.slug %>"><%= art.title %></a>
+                    </h3>
+                    <p class="text-xs text-on-surface-variant line-clamp-3 leading-relaxed mb-4">
+                      <%= art.summary %>
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between text-xs text-on-surface-variant border-t border-stone-gray/30 pt-4 mt-auto">
+                    <span class="flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                      <%= new Date(art.published_at || art.created_at).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                    </span>
+                    <span><%= art.reading_time_minutes %> dk okuma</span>
+                  </div>
+                </div>
+              </article>
+            <% }) %>
+          </div>
+        <% } else { %>
+          <div class="text-center py-12 bg-white border border-stone-gray/60 rounded-xl">
+            <p class="text-on-surface-variant">Henüz yayınlanmış makale bulunmamaktadır.</p>
+          </div>
+        <% } %>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  <script>
+    const slider = document.getElementById('articlesSlider');
+    const leftBtn = document.getElementById('slideLeftBtn');
+    const rightBtn = document.getElementById('slideRightBtn');
+
+    if (slider && leftBtn && rightBtn) {
+      const getScrollAmount = () => {
+        const firstCard = slider.querySelector('article');
+        return firstCard ? firstCard.clientWidth + 24 : 300;
+      };
+
+      leftBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      });
+
+      rightBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Av. Danışman | Hukuk ve Adalet Blogu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#3c475a",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#d2e4fb",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#8691a6",
+                    "surface-tint": "#4f6073",
+                    "surface-bright": "#F8F7F4",
+                    "primary": "#041627",
+                    "tertiary-fixed": "#d8e3fa",
+                    "ink-black": "#0F172A",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdea5",
+                    "paper-white": "#F8F7F4",
+                    "secondary-fixed-dim": "#e9c176",
+                    "stone-gray": "#DEDBD3",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "tertiary-fixed-dim": "#bcc7dd",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c4c6cd",
+                    "on-background": "#191c1d",
+                    "on-tertiary-fixed": "#111c2c",
+                    "surface-variant": "#E8E6E1",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#b7c8de",
+                    "legal-navy": "#1A2B3C",
+                    "tertiary": "#0a1526",
+                    "surface-container-highest": "#E1DFD9",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-container": "#fed488",
+                    "background": "#F5F5F2",
+                    "outline": "#74777d",
+                    "on-secondary-fixed": "#261900",
+                    "surface-container-lowest": "#F8F7F4",
+                    "on-secondary-container": "#785a1a",
+                    "surface": "#F8F7F4",
+                    "inverse-surface": "#2e3132",
+                    "primary-container": "#1a2b3c",
+                    "surface-container-low": "#F0EFEC",
+                    "on-primary-fixed-variant": "#38485a",
+                    "secondary": "#775a19",
+                    "on-surface": "#1A1C1E",
+                    "tertiary-container": "#1f2a3b",
+                    "prestige-gold": "#C5A059",
+                    "inverse-primary": "#b7c8de",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#DEDBD3",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#0b1d2d",
+                    "on-primary-container": "#8192a7",
+                    "on-surface-variant": "#404245",
+                    "surface-container": "#EAE8E3",
+                    "surface-container-high": "#E5E3DD"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "section-gap": "80px",
+                    "article-max": "720px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "label-caps": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "nav-link": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "30px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "nav-link": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #F8F7F4 0%, #EAE8E3 100%);
+        }
+        .whatsapp-float {
+            box-shadow: 0px 4px 20px rgba(26, 43, 60, 0.2);
+        }
+        .article-card-hover:hover {
+            box-shadow: 0px 8px 30px rgba(26, 43, 60, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-prestige-gold/30">
+<!-- Header (TopNavBar) -->
+<header class="fixed top-0 w-full z-50 bg-paper-white dark:bg-primary border-b border-stone-gray dark:border-on-tertiary-container h-20 shadow-sm">
+<nav class="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
+<div class="font-headline-sm text-headline-sm text-legal-navy dark:text-primary-fixed">
+            Av. Danışman
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-nav-link text-nav-link text-legal-navy dark:text-primary-fixed border-b-2 border-prestige-gold pb-1 hover:text-prestige-gold transition-colors duration-200" href="#">Ana Sayfa</a>
+<a class="font-nav-link text-nav-link text-on-surface-variant dark:text-on-primary-container hover:text-prestige-gold transition-colors duration-200" href="#hakkimda">Hakkımda</a>
+<a class="font-nav-link text-nav-link text-on-surface-variant dark:text-on-primary-container hover:text-prestige-gold transition-colors duration-200" href="#makaleler">Makaleler</a>
+<a class="font-nav-link text-nav-link text-on-surface-variant dark:text-on-primary-container hover:text-prestige-gold transition-colors duration-200" href="#iletisim">İletişim</a>
+</div>
+<button class="bg-legal-navy text-on-primary px-6 py-2.5 rounded hover:opacity-90 transition-all font-nav-link text-nav-link">
+            Randevu Al
+        </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="hero-gradient min-h-[819px] flex items-center overflow-hidden relative">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+<div class="z-10 py-12">
+<span class="inline-block px-3 py-1 bg-prestige-gold/10 text-prestige-gold font-label-caps text-label-caps mb-6 rounded-sm">KIDEMLİ HUKUK DANIŞMANI</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-legal-navy mb-6">
+                    Hukukta Güven ve <br/><span class="text-prestige-gold italic">Şeffaflık</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                    Karmaşık hukuki süreçlerinizi stratejik bir bakış açısıyla yönetiyoruz. 10 yılı aşkın tecrübe ile her vakada mutlak titizlik ve şeffaflık önceliğimizdir.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-legal-navy text-on-primary px-8 py-4 rounded font-nav-link text-nav-link hover:bg-opacity-95 transition-all shadow-lg" href="#makaleler">
+                        Makalelerimi Oku
+                    </a>
+<a class="border border-prestige-gold text-prestige-gold px-8 py-4 rounded font-nav-link text-nav-link hover:bg-prestige-gold hover:text-on-primary transition-all" href="#iletisim">
+                        Ücretsiz Ön Görüşme
+                    </a>
+</div>
+</div>
+<div class="relative hidden lg:block h-full min-h-[600px]">
+<div class="absolute inset-0 bg-stone-gray rounded-xl overflow-hidden shadow-xl transform rotate-1 translate-x-4 translate-y-4 opacity-50"></div>
+<div class="absolute inset-0 bg-paper-white rounded-xl overflow-hidden shadow-2xl z-10">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a Turkish lawyer in a modern corporate office setting. The lawyer is wearing a tailored navy suit, standing confidently with a soft, approachable expression. The background features a blurred minimalist bookshelf and large windows with soft morning light, utilizing a palette of legal navy, prestige gold accents, and bright whites. High-end editorial photography style with shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDChXsaJVNz6iya52IauyPIlrqkaGAc87SON8fnWgH90PVShhqUN0rwB3xwuMrz_IOA_JdCFXuXeuTgFDR1K_V5XS5cKdP47J1vDJdXjtmyDlC_f_KDKNVGjYmnnJg3N3pQKjzH3DkAxVUXVgkEufZsQDE5AAPtOJ31Qo6fz4ZgsVXYBgo_HEq8CstvLobKwmEoqkvwKZn5S2rw4m55Mgh5RhB2L820WRlSu6MbF0-hWHer9dF0n-wNAzkfY52V7Hv_XVlyZliTM0CA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- About Snippet -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter" id="hakkimda">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5">
+<h2 class="font-headline-md text-headline-md text-legal-navy mb-6">Hakkımda</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Meslek hayatım boyunca müvekkillerime yalnızca hukuki temsil değil, aynı zamanda güvenilir bir stratejik ortaklık sundum. Akademik derinliği pratik çözüm odaklılıkla birleştiriyorum.
+                </p>
+<div class="flex items-center gap-4 mb-8">
+<div class="text-display-lg text-prestige-gold font-display-lg">10+</div>
+<div class="font-label-caps text-label-caps text-legal-navy leading-tight">YILLIK<br/>TECRÜBE</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-8 border border-stone-gray bg-paper-white/50 hover:border-prestige-gold transition-colors duration-300 group">
+<span class="material-symbols-outlined text-prestige-gold mb-4 text-4xl">business</span>
+<h3 class="font-headline-sm text-headline-sm text-legal-navy mb-3">Kurumsal Hukuk</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Şirket kuruluşlarından birleşme ve devralmalara kadar geniş yelpazede danışmanlık.</p>
+</div>
+<div class="p-8 border border-stone-gray bg-paper-white/50 hover:border-prestige-gold transition-colors duration-300 group">
+<span class="material-symbols-outlined text-prestige-gold mb-4 text-4xl">gavel</span>
+<h3 class="font-headline-sm text-headline-sm text-legal-navy mb-3">Medeni Hukuk</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Aile hukuku, miras paylaşımları ve mülkiyet hakları konularında hassas yönetim.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Latest Articles (Bento/Grid) -->
+<section class="bg-surface-container-low py-section-gap" id="makaleler">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="font-label-caps text-label-caps text-prestige-gold">GÜNCEL HUKUKİ ANALİZLER</span>
+<h2 class="font-headline-md text-headline-md text-legal-navy mt-2">Son Makaleler</h2>
+</div>
+<a class="hidden md:flex items-center gap-2 text-legal-navy font-nav-link hover:text-prestige-gold transition-all" href="#">
+                    Tümünü Görüntüle <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Article 1 -->
+<article class="bg-paper-white group article-card-hover transition-all duration-300 border border-stone-gray flex flex-col shadow-sm">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of modern digital technology icons and legal document symbols layered over a clean blue background. Abstract representation of KVKK regulations, digital privacy, and data protection. Sophisticated minimalist graphic design in light mode with navy and grey tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ5WMPkme3Vz_9sIbeYO0z-nEwugF92sK7ZY8VVXGPRyWnhHfAU1tfPPcmZh-qFjPw6KhjdhkBNtJYs8ofjJSCtJsLrtIcOIhLMkVFEM--VwPlXojfMmyLLx7lSDUg-uVAgy2cmqOJFLb73KUMLUdIkTw31Gk7C0rUb-zjboBIFTlq5KctEw8ppcqG_FyVj-xx4kHrr0yb1gkWK-VOZqTsGirXd3mZF-Jm-qi4PKuReu_I1IXw3SIceQdbfsnO9VZideUiN4B1HTjj"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<span class="bg-surface-container text-legal-navy px-2 py-1 rounded-sm font-label-caps text-[10px]">BİLİŞİM HUKUKU</span>
+<span class="text-on-surface-variant text-[11px] font-label-caps">6 DK OKUMA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-legal-navy mb-3 group-hover:text-prestige-gold transition-colors">KVKK Düzenlemeleri</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-6 line-clamp-3">2024 yılı itibarıyla kişisel verilerin korunması kanununda yapılan kritik değişiklikler ve işletmelerin alması gereken önlemler...</p>
+<a class="mt-auto text-legal-navy font-nav-link text-sm underline decoration-prestige-gold/50 underline-offset-4 hover:decoration-prestige-gold" href="#">Devamını Oku</a>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="bg-paper-white group article-card-hover transition-all duration-300 border border-stone-gray flex flex-col shadow-sm">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A stylized image representing employment law and labor rights. Features a modern office workspace with a gavel on a desk next to a legal contract. Soft, professional lighting, corporate atmosphere. Dominated by deep navy and professional grey colors, with warm gold highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv-sMcV77X17KZSAryocVw2aXSN2sZAVrU63Ac0yfk6wI9d-6acFPtLw8Z45QZ_-BTFXFNw6hcs1PQUhm0w3BiexFA4habkeJPnBDkfEq95YLxRoay0Wn3zBjQ128bWT7UUO4P2fqhXDuv-yc8pWA2IPPNPam0SMnCj3LSU7qkOzIJ3_d1Hh1-lTfYYV8cmamwdpN_rh7czPzLODceguz202yL1QcRI3dO_pGMtZHmxSSIG789AyDd-2yBAaKxpWC3Gc1jzpi9CORo"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<span class="bg-surface-container text-legal-navy px-2 py-1 rounded-sm font-label-caps text-[10px]">İŞ HUKUKU</span>
+<span class="text-on-surface-variant text-[11px] font-label-caps">8 DK OKUMA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-legal-navy mb-3 group-hover:text-prestige-gold transition-colors">İş Hukukunda Yeni Dönem</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-6 line-clamp-3">Uzaktan çalışma ve hibrit modellerin iş sözleşmeleri üzerindeki hukuki etkileri ve yargıtay kararları ışığında güncel durum...</p>
+<a class="mt-auto text-legal-navy font-nav-link text-sm underline decoration-prestige-gold/50 underline-offset-4 hover:decoration-prestige-gold" href="#">Devamını Oku</a>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="bg-paper-white group article-card-hover transition-all duration-300 border border-stone-gray flex flex-col shadow-sm">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artistic composition representing inheritance law. An old leather-bound journal and a gold fountain pen resting on an antique wooden table. Soft warm lighting creates a feeling of history and tradition. Muted colors with gold accents, emphasizing legacy and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoN3tXkttkj-Pp0nj755G9UofNNsYKEb9p-jCAaFKfhfdhEewfp_YiUf9WDdxGCnyTtgV136dq0dyaU3Sp9afLPlyVERJob52KsbMqTTfxtQyQ_n9Nuof3DVn7zZD4-Nuh_txgLSwz5jBcWPHBCp1wGJEByFdTZfiMmodEoNI4TjxGKRYxo4pw6meHbr3fwYo7QF3-tzZCS3Ie7O5lEP17YWbS8-2r7AIGiP7Ez_sWpM_0nLgi3OaIN-1jE4DRQbmEEkjXC7mbj9gJ"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<span class="bg-surface-container text-legal-navy px-2 py-1 rounded-sm font-label-caps text-[10px]">MEDENİ HUKUK</span>
+<span class="text-on-surface-variant text-[11px] font-label-caps">10 DK OKUMA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-legal-navy mb-3 group-hover:text-prestige-gold transition-colors">Miras Hukuku Esasları</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-6 line-clamp-3">Veraset ilamı süreçleri, saklı pay oranları ve mirasçılık haklarının korunmasına dair kapsamlı bir rehber hazırladık...</p>
+<a class="mt-auto text-legal-navy font-nav-link text-sm underline decoration-prestige-gold/50 underline-offset-4 hover:decoration-prestige-gold" href="#">Devamını Oku</a>
+</div>
+</article>
+<!-- Article 4 -->
+<article class="bg-paper-white group article-card-hover transition-all duration-300 border border-stone-gray flex flex-col shadow-sm">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-tech digital network lines forming a globe, symbolizing digital transformation. Clean, futuristic legal concept. Cool blue tones and light grey surfaces, with bright white highlights. Professional, advanced, and minimalist aesthetic suitable for a law blog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDtSoZHWBsklXGdM_om5uvVFdcmWSreiofBybzWclcVSvkO8_I31Zc6vFzlfuQ_QlzxjGmt_jfbNgtgnJIPx4PcUGJYvQ9-D7paCvt2UbUYYfrDqDcsZbA2mQsXCE00ks6p6QIbsU_hANcoTTZa6xwwQ2HF3qQtVUQeTf9vA1nVVgUfLF_eDrBGgkQDJobfSzUQLcJICC2P3vO5DxqwSnnRBo7dBUDF0lI9H6PTBfTBtjzo0H8IEwbUsQe4bDeYITwICU-1DZfe8Wy"/>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<span class="bg-surface-container text-legal-navy px-2 py-1 rounded-sm font-label-caps text-[10px]">DİJİTAL DÖNÜŞÜM</span>
+<span class="text-on-surface-variant text-[11px] font-label-caps">5 DK OKUMA</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-legal-navy mb-3 group-hover:text-prestige-gold transition-colors">Dijital Dönüşüm ve Hukuk</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-6 line-clamp-3">Akıllı sözleşmeler ve blokzincir teknolojisinin geleneksel hukuk pratiklerine entegrasyonu ve gelecek öngörüleri...</p>
+<a class="mt-auto text-legal-navy font-nav-link text-sm underline decoration-prestige-gold/50 underline-offset-4 hover:decoration-prestige-gold" href="#">Devamını Oku</a>
+</div>
+</article>
+</div>
+<div class="mt-12 md:hidden text-center">
+<a class="inline-flex items-center gap-2 text-legal-navy font-nav-link hover:text-prestige-gold" href="#">
+                    Tümünü Görüntüle <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter" id="iletisim">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="font-headline-md text-headline-md text-legal-navy mb-6">Hukuki Danışmanlık Alın</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10">
+                    Hukuki sorunlarınız için profesyonel destek almak veya iş birliği olanaklarını görüşmek üzere aşağıdaki formu doldurabilirsiniz. 24 saat içerisinde tarafınıza geri dönüş sağlanacaktır.
+                </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-prestige-gold">location_on</span>
+<div>
+<h4 class="font-bold text-legal-navy">Adres</h4>
+<p class="text-on-surface-variant">Levent Plaza, No:42, Beşiktaş, İstanbul</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-prestige-gold">mail</span>
+<div>
+<h4 class="font-bold text-legal-navy">E-posta</h4>
+<p class="text-on-surface-variant">iletisim@avdanisman.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-paper-white p-8 md:p-10 border border-stone-gray shadow-md">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-caps text-[11px] text-on-surface-variant mb-2">AD SOYAD</label>
+<input class="w-full border-stone-gray focus:border-legal-navy focus:ring-prestige-gold/20 transition-all rounded-sm p-3 bg-surface-container-lowest" placeholder="Adınız Soyadınız" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-[11px] text-on-surface-variant mb-2">E-POSTA</label>
+<input class="w-full border-stone-gray focus:border-legal-navy focus:ring-prestige-gold/20 transition-all rounded-sm p-3 bg-surface-container-lowest" placeholder="example@mail.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-[11px] text-on-surface-variant mb-2">KONU</label>
+<select class="w-full border-stone-gray focus:border-legal-navy focus:ring-prestige-gold/20 transition-all rounded-sm p-3 bg-surface-container-lowest">
+<option>Danışmanlık Talebi</option>
+<option>İş Birliği</option>
+<option>Diğer</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-[11px] text-on-surface-variant mb-2">MESAJINIZ</label>
+<textarea class="w-full border-stone-gray focus:border-legal-navy focus:ring-prestige-gold/20 transition-all rounded-sm p-3 bg-surface-container-lowest" placeholder="Konu hakkında kısa bir ön bilgi..." rows="4"></textarea>
+</div>
+<button class="w-full bg-legal-navy text-on-primary py-4 rounded font-bold hover:bg-opacity-90 transition-all tracking-wide shadow-lg" type="submit">MESAJI GÖNDER</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-gutter flex flex-col md:flex-row justify-between items-start max-w-container-max mx-auto bg-legal-navy dark:bg-tertiary">
+<div class="mb-10 md:mb-0">
+<div class="font-headline-md text-headline-md text-prestige-gold mb-4">Av. Danışman</div>
+<p class="font-body-md text-body-md text-stone-gray/80 max-w-xs">
+            Modern hukuk çözümleri ve stratejik danışmanlık ile haklarınız güvence altında.
+        </p>
+</div>
+<div class="flex flex-col md:flex-row gap-12 lg:gap-24">
+<div class="flex flex-col gap-4">
+<h5 class="text-paper-white font-bold mb-2">Hızlı Erişim</h5>
+<a class="text-stone-gray/80 hover:text-prestige-gold transition-all font-body-md text-body-md" href="#">Hakkımda</a>
+<a class="text-stone-gray/80 hover:text-prestige-gold transition-all font-body-md text-body-md" href="#">Makaleler</a>
+<a class="text-stone-gray/80 hover:text-prestige-gold transition-all font-body-md text-body-md" href="#">İletişim</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-paper-white font-bold mb-2">Yasal</h5>
+<a class="text-stone-gray/80 hover:text-prestige-gold transition-all font-body-md text-body-md" href="#">KVKK</a>
+<a class="text-stone-gray/80 hover:text-prestige-gold transition-all font-body-md text-body-md" href="#">Gizlilik Politikası</a>
+<a class="text-stone-gray/80 hover:text-prestige-gold transition-all font-body-md text-body-md" href="#">Kullanım Koşulları</a>
+</div>
+</div>
+<div class="mt-12 md:mt-0 w-full md:w-auto text-stone-gray/60 font-body-md text-body-md border-t border-stone-gray/10 pt-8 md:border-none md:pt-0">
+        © 2024 Tüm Hakları Saklıdır.
+    </div>
+</footer>
+<!-- WhatsApp Floating Icon -->
+<a class="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full whatsapp-float hover:scale-110 transition-transform active:scale-95 flex items-center justify-center" href="https://wa.me/900000000000" target="_blank">
+<svg fill="currentColor" height="32" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+</a>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        observer.observe(section);
+    });
+</script>
+</body></html>
