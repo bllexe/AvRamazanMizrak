@@ -132,38 +132,44 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
       </section>
 
       {/* Article Content Section */}
-      <section className="py-20 bg-white dark:bg-slate-800 relative transition-colors duration-300">
+      <section className="py-12 md:py-16 bg-[#F8F7F4] dark:bg-slate-950 relative transition-colors duration-300">
         <div className="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row gap-gutter">
-          {/* Content Area */}
-          <article className="flex-1 max-w-article-max mx-auto">
-            {article.image_url && (
-              <div className="mb-12 rounded-xl overflow-hidden border border-stone-gray/60 dark:border-slate-700/60 shadow-lg">
-                <img
-                  src={article.image_url}
-                  alt={article.title}
-                  className="w-full h-auto object-cover max-h-[450px]"
-                />
+          {/* Main Content Area */}
+          <div className="flex-1 max-w-article-max mx-auto w-full space-y-12">
+            {/* Framed Article Text Box (Image + Content + Share Button) */}
+            <article className="bg-white dark:bg-slate-900 border-2 border-prestige-gold/70 dark:border-prestige-gold/80 rounded-2xl p-6 sm:p-10 md:p-14 shadow-[0_8px_30px_rgba(197,160,89,0.15)] dark:shadow-[0_8px_35px_rgba(197,160,89,0.2)] relative overflow-hidden transition-all duration-300">
+              {/* Top decorative gradient gold bar */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-prestige-gold via-amber-300 to-prestige-gold" />
+
+              {article.image_url && (
+                <div className="mb-12 rounded-xl overflow-hidden border border-stone-gray/60 dark:border-slate-700/60 shadow-lg">
+                  <img
+                    src={article.image_url}
+                    alt={article.title}
+                    className="w-full h-auto object-cover max-h-[450px]"
+                  />
+                </div>
+              )}
+
+              <div
+                className="article-content prose prose-lg prose-stone dark:prose-invert max-w-none w-full whitespace-pre-wrap"
+                dangerouslySetInnerHTML={{ __html: article.content }}
+              />
+
+              {/* Bottom Share Options */}
+              <div className="mt-16 pt-8 border-t border-stone-gray/30 dark:border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <span className="font-headline-sm text-lg text-legal-navy dark:text-slate-200 font-bold">
+                  Bu Makaleyi Paylaş
+                </span>
+                <div className="flex items-center gap-4">
+                  <ShareButton title={article.title} url={shareUrl} />
+                </div>
               </div>
-            )}
+            </article>
 
-            <div
-              className="article-content prose prose-lg prose-stone dark:prose-invert max-w-none w-full whitespace-pre-wrap"
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
-
-            {/* Bottom Share Options */}
-            <div className="mt-16 pt-8 border-t border-stone-gray/30 dark:border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <span className="font-headline-sm text-lg text-legal-navy dark:text-slate-200 font-bold">
-                Bu Makaleyi Paylaş
-              </span>
-              <div className="flex items-center gap-4">
-                <ShareButton title={article.title} url={shareUrl} />
-              </div>
-            </div>
-
-            {/* Author Card */}
+            {/* Author Card - Outside Gold Frame */}
             {author && (
-              <div className="mt-20 p-8 border border-stone-gray dark:border-slate-700/60 bg-[#F8F7F4] dark:bg-slate-900/50 flex flex-col md:flex-row items-center gap-8 rounded-lg">
+              <div className="p-8 border border-stone-gray/40 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col md:flex-row items-center gap-8 rounded-xl shadow-sm">
                 <div className="w-32 h-32 shrink-0 rounded-full overflow-hidden border-2 border-prestige-gold relative">
                   <img
                     src="/images/profil2.jpeg"
@@ -222,8 +228,8 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
               </div>
             )}
 
-            {/* Call to Action */}
-            <div className="mt-12 bg-legal-navy dark:bg-slate-900 p-10 text-center rounded shadow-xl border border-transparent dark:border-slate-700/50">
+            {/* Call to Action - Outside Gold Frame */}
+            <div className="bg-legal-navy dark:bg-slate-900 p-10 text-center rounded-xl shadow-xl border border-stone-gray/20 dark:border-slate-800">
               <h3 className="font-headline-md text-headline-md text-white mb-4 font-bold">
                 Hukuki Yardıma mı İhtiyacınız Var?
               </h3>
@@ -231,13 +237,13 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 Sorularınız veya randevu talepleriniz için bana ulaşabilirsiniz.
               </p>
               <Link
-                className="inline-block px-10 py-4 bg-prestige-gold text-legal-navy font-bold hover:bg-opacity-90 transition-all uppercase tracking-widest text-sm"
+                className="inline-block px-10 py-4 bg-prestige-gold text-legal-navy font-bold hover:bg-opacity-90 transition-all uppercase tracking-widest text-sm rounded-lg"
                 href="/iletisim"
               >
                 Randevu Al
               </Link>
             </div>
-          </article>
+          </div>
         </div>
       </section>
 

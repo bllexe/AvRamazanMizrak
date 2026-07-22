@@ -12,7 +12,7 @@
       "static/chunks/fd9d1056-81f448b567f73d85.js",
       "static/chunks/23-63a418d3d74a73d8.js",
       "static/chunks/main-app-62d88046d34ad659.js",
-      "static/css/c85a86f2fcb88d9d.css",
+      "static/css/9ee22b8d5a1f3948.css",
       "static/chunks/231-841ce226e0ae46fd.js",
       "static/chunks/app/layout-5427a2b1aa475eab.js"
     ],
@@ -33,6 +33,14 @@
       "static/chunks/733-c85272dfb6bf8cc5.js",
       "static/chunks/app/hakkimda/page-dac4ea4346111e94.js"
     ],
+    "/kaynaklar/page": [
+      "static/chunks/webpack-fe88331499a50b75.js",
+      "static/chunks/fd9d1056-81f448b567f73d85.js",
+      "static/chunks/23-63a418d3d74a73d8.js",
+      "static/chunks/main-app-62d88046d34ad659.js",
+      "static/chunks/231-841ce226e0ae46fd.js",
+      "static/chunks/app/kaynaklar/page-5ad274f3efbc1f75.js"
+    ],
     "/legal/[type]/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
       "static/chunks/fd9d1056-81f448b567f73d85.js",
@@ -41,13 +49,13 @@
       "static/chunks/231-841ce226e0ae46fd.js",
       "static/chunks/app/legal/[type]/page-2e367800a1eb33fd.js"
     ],
-    "/kaynaklar/page": [
+    "/iletisim/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
       "static/chunks/fd9d1056-81f448b567f73d85.js",
       "static/chunks/23-63a418d3d74a73d8.js",
       "static/chunks/main-app-62d88046d34ad659.js",
       "static/chunks/231-841ce226e0ae46fd.js",
-      "static/chunks/app/kaynaklar/page-5ad274f3efbc1f75.js"
+      "static/chunks/app/iletisim/page-f80e45c59e612d40.js"
     ],
     "/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
@@ -57,14 +65,6 @@
       "static/chunks/231-841ce226e0ae46fd.js",
       "static/chunks/733-c85272dfb6bf8cc5.js",
       "static/chunks/app/page-9d4d146f1103ab4a.js"
-    ],
-    "/iletisim/page": [
-      "static/chunks/webpack-fe88331499a50b75.js",
-      "static/chunks/fd9d1056-81f448b567f73d85.js",
-      "static/chunks/23-63a418d3d74a73d8.js",
-      "static/chunks/main-app-62d88046d34ad659.js",
-      "static/chunks/231-841ce226e0ae46fd.js",
-      "static/chunks/app/iletisim/page-f80e45c59e612d40.js"
     ],
     "/makaleler/[slug]/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
@@ -82,13 +82,12 @@
       "static/chunks/231-841ce226e0ae46fd.js",
       "static/chunks/app/makaleler/page-e04b2d8d610d48dd.js"
     ],
-    "/admin/(dashboard)/articles/page": [
+    "/admin/(dashboard)/categories/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
       "static/chunks/fd9d1056-81f448b567f73d85.js",
       "static/chunks/23-63a418d3d74a73d8.js",
       "static/chunks/main-app-62d88046d34ad659.js",
-      "static/chunks/231-841ce226e0ae46fd.js",
-      "static/chunks/app/admin/(dashboard)/articles/page-4abf5a145bbc53b6.js"
+      "static/chunks/app/admin/(dashboard)/categories/page-18c0066a3ae04531.js"
     ],
     "/admin/(dashboard)/layout": [
       "static/chunks/webpack-fe88331499a50b75.js",
@@ -98,12 +97,13 @@
       "static/chunks/231-841ce226e0ae46fd.js",
       "static/chunks/app/admin/(dashboard)/layout-125b117a717be5bf.js"
     ],
-    "/admin/(dashboard)/categories/page": [
+    "/admin/(dashboard)/articles/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
       "static/chunks/fd9d1056-81f448b567f73d85.js",
       "static/chunks/23-63a418d3d74a73d8.js",
       "static/chunks/main-app-62d88046d34ad659.js",
-      "static/chunks/app/admin/(dashboard)/categories/page-18c0066a3ae04531.js"
+      "static/chunks/231-841ce226e0ae46fd.js",
+      "static/chunks/app/admin/(dashboard)/articles/page-4abf5a145bbc53b6.js"
     ],
     "/admin/(dashboard)/messages/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
@@ -147,7 +147,7 @@
       "static/chunks/fd9d1056-81f448b567f73d85.js",
       "static/chunks/23-63a418d3d74a73d8.js",
       "static/chunks/main-app-62d88046d34ad659.js",
-      "static/chunks/app/admin/(dashboard)/settings/page-097976626da0d83d.js"
+      "static/chunks/app/admin/(dashboard)/settings/page-d3a840f04f61c515.js"
     ],
     "/admin/(dashboard)/page": [
       "static/chunks/webpack-fe88331499a50b75.js",
