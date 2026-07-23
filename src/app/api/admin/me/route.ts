@@ -10,10 +10,6 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  if (token === 'local-admin-active') {
-    return NextResponse.json({ email: 'admin@avdanisman.com' });
-  }
-
   try {
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_KEY;

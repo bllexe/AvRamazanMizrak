@@ -10,13 +10,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Oturum bulunamadı.' }, { status: 401 });
   }
 
-  if (token === 'local-admin-active') {
-    return NextResponse.json(
-      { error: 'Yerel geliştirici hesabı (admin@avdanisman.com) şifresi kod üzerinde sabittir, değiştirilemez.' },
-      { status: 400 }
-    );
-  }
-
   try {
     const { password } = await request.json();
     if (!password || password.length < 6) {

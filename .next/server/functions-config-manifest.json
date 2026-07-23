@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/admin/articles/[id]/edit":{},"/admin/articles/create":{},"/admin":{},"/admin/profile":{},"/admin/settings":{},"/hakkimda":{},"/iletisim":{},"/kaynaklar":{},"/legal/[type]":{},"/makaleler":{},"/makaleler/[slug]":{},"/":{}}}
+{"version":1,"functions":{"/admin/articles/[id]/edit":{},"/admin/articles/create":{},"/admin":{},"/admin/profile":{},"/admin/settings":{},"/hakkimda":{},"/iletisim":{},"/kaynaklar":{},"/":{},"/legal/[type]":{},"/makaleler":{},"/makaleler/[slug]":{}}}

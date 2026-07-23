@@ -36,10 +36,35 @@ export default function AdminProfileForm({
     linkedin_url: initialProfile?.linkedin_url || '',
     twitter_url: initialProfile?.twitter_url || '',
     instagram_url: initialProfile?.instagram_url || '',
+    image_url:
+      initialProfile?.image_url && !initialProfile.image_url.includes('lh3.googleusercontent.com')
+        ? initialProfile.image_url
+        : '',
   });
+
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [filePreview, setFilePreview] = useState<string | null>(null);
 
   const [isSavingProfile, setIsSavingProfile] = useState(false);
   const [profileSuccess, setProfileSuccess] = useState(false);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      setSelectedFile(file);
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setFilePreview(event.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemovePhoto = () => {
+    setSelectedFile(null);
+    setFilePreview(null);
+    setProfileData({ ...profileData, image_url: '' });
+  };
 
   // Certifications State
   const [certifications, setCertifications] = useState<Certification[]>(initialCertifications);
@@ -84,15 +109,34 @@ export default function AdminProfileForm({
         return;
       }
 
-      const response = await fetch('/api/admin/profile', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(profileData),
-      });
+      let response: Response;
+
+      if (selectedFile) {
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+        formData.append('data', JSON.stringify(profileData));
+
+        response = await fetch('/api/admin/profile', {
+          method: 'POST',
+          body: formData,
+        });
+      } else {
+        response = await fetch('/api/admin/profile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(profileData),
+        });
+      }
 
       if (response.ok) {
+        const resData = await response.json();
+        if (resData.image_url) {
+          setProfileData((prev) => ({ ...prev, image_url: resData.image_url }));
+        }
+        setSelectedFile(null);
+        setFilePreview(null);
         setProfileSuccess(true);
         setTimeout(() => setProfileSuccess(false), 3000);
       } else {
@@ -198,6 +242,79 @@ export default function AdminProfileForm({
               Değişiklikler Kaydedildi!
             </span>
           )}
+        </div>
+
+        {/* Profile Image Section */}
+        <div className="p-5 bg-stone-50 dark:bg-slate-900/40 border border-stone-gray/40 dark:border-slate-700/40 rounded-xl space-y-4">
+          <label className="font-label-caps text-xs text-on-surface-variant dark:text-slate-400 tracking-wider block font-bold">
+            AVUKAT PROFİL FOTOĞRAFI
+          </label>
+          
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            {/* Image Preview Box */}
+            <div className="relative w-28 h-36 rounded-lg overflow-hidden border-2 border-prestige-gold/50 shadow-md bg-stone-200 dark:bg-slate-700 shrink-0 flex items-center justify-center group">
+              <img
+                src={filePreview || profileData.image_url || '/images/profil2.jpeg'}
+                alt="Profil Önizleme"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold">
+                Önizleme
+              </div>
+            </div>
+
+            {/* Upload & URL Controls */}
+            <div className="flex-1 space-y-3 w-full">
+              <div className="flex flex-wrap items-center gap-3">
+                <label
+                  htmlFor="profile-file-input"
+                  className="px-4 py-2.5 bg-legal-navy text-white text-xs font-bold rounded-lg hover:bg-opacity-90 transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+                >
+                  <span className="material-symbols-outlined text-[18px]">upload_file</span>
+                  Bilgisayardan Fotoğraf Seç
+                </label>
+                <input
+                  id="profile-file-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+
+                {(selectedFile || profileData.image_url) && (
+                  <button
+                    type="button"
+                    onClick={handleRemovePhoto}
+                    className="px-3 py-2 bg-red-50 text-red-600 hover:bg-red-100 dark:bg-red-950/40 dark:text-red-400 text-xs font-bold rounded-lg transition-colors flex items-center gap-1 border border-red-200 dark:border-red-900/50"
+                  >
+                    <span className="material-symbols-outlined text-[16px]">delete</span>
+                    Kaldır / Sıfırla
+                  </button>
+                )}
+              </div>
+
+              {selectedFile && (
+                <p className="text-xs text-green-700 dark:text-green-400 font-semibold flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  Seçilen Dosya: {selectedFile.name} (Kaydet butonuna bastığınızda yüklenecektir)
+                </p>
+              )}
+
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-on-surface-variant dark:text-slate-400 block" htmlFor="image_url">
+                  VEYA GÖRSEL URL ADRESİ GİRİN
+                </label>
+                <input
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-900/80 border border-[#DEDCD7] dark:border-slate-700/50 rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold outline-none text-xs font-mono"
+                  id="image_url"
+                  type="text"
+                  placeholder="https://... veya /images/profil2.jpeg"
+                  value={profileData.image_url}
+                  onChange={(e) => setProfileData({ ...profileData, image_url: e.target.value })}
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

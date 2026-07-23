@@ -9,7 +9,7 @@ ON CONFLICT (slug) DO NOTHING;
 
 -- 2. SEED AUTHOR PROFILE
 INSERT INTO author_profile (id, full_name, title, bar_number, experience_years, specializations, image_url, bio_short, bio_long, email, phone, whatsapp_number, linkedin_url, twitter_url, instagram_url) VALUES
-('550e8400-e29b-41d4-a716-446655440010', 'Selim Aras Danışman', 'Kıdemli Hukuk Danışmanı / Avukat', '42159', 15, '["Şirketler Hukuku", "Ceza Hukuku", "Medeni Hukuk", "Bilişim Hukuku"]', 'https://lh3.googleusercontent.com/aida-public/AB6AXuChVl5a454Jk0TPnA_w0bwK3LmPRaBTtVLQl5CrAxQ2CqmAKCvAJce-bBGEANefScxYruSov0GX7GI_VB_wZHnaghktSmQRHht5me-2jfYdg0ufTHpc2ks4Vd6JCod9gooVFGNn9y6GwLFQZ5v3mLCnqfBxRgBHM16AU0vOy9W56stP-y8RT0Gkzxb_S92s-A2Xi7M8tNt8ARWFkytoEAUnewr8MZ8UlCOEeM4YV0DYY5telyR7Glf_6I-nGU4pOxTIfaSUAe2LsqJP', 'Karmaşık hukuki süreçlerinizi stratejik bir bakış açısıyla yönetiyoruz. 10 yılı aşkın tecrübe ile her vakada mutlak titizlik ve şeffaflık önceliğimizdir.', '<p>Hukuk kariyerime, adaletin sadece bir kavram değil, toplumsal bir denge unsuru olduğu bilinciyle başladım. Yirmi yılı aşkın süredir, karmaşık hukuki süreçleri müvekkillerim için şeffaf, güvenilir ve stratejik bir düzleme taşıyorum.</p><p>Modern hukukun dinamiklerini, geleneksel etik değerlerle harmanlayarak, her dosyanın kendine özgü hikayesine ve ihtiyacına odaklanıyorum. Uzmanlık alanlarımda edindiğim derin tecrübe, sadece dava kazanmak değil, sürdürülebilir hukuki çözümler üretmek üzerine kuruludur.</p>', 'iletisim@avdanisman.com', '+90 (212) 555 01 01', '+905550000000', 'https://linkedin.com/in/av-selim-aras', 'https://twitter.com/av-selim-aras', 'https://instagram.com/av-selim-aras')
+('550e8400-e29b-41d4-a716-446655440010', 'Av. Ramazan Mızrak', 'Kıdemli Hukuk Danışmanı / Avukat', '42159', 15, '["Şirketler Hukuku", "Ceza Hukuku", "Medeni Hukuk", "Bilişim Hukuku"]', '/images/profil2.jpeg', 'Karmaşık hukuki süreçlerinizi stratejik bir bakış açısıyla yönetiyoruz. 10 yılı aşkın tecrübe ile her vakada mutlak titizlik ve şeffaflık önceliğimizdir.', '<p>Hukuk kariyerime, adaletin sadece bir kavram değil, toplumsal bir denge unsuru olduğu bilinciyle başladım. Yirmi yılı aşkın süredir, karmaşık hukuki süreçleri müvekkillerim için şeffaf, güvenilir ve stratejik bir düzleme taşıyorum.</p><p>Modern hukukun dinamiklerini, geleneksel etik değerlerle harmanlayarak, her dosyanın kendine özgü hikayesine ve ihtiyacına odaklanıyorum. Uzmanlık alanlarımda edindiğim derin tecrübe, sadece dava kazanmak değil, sürdürülebilir hukuki çözümler üretmek üzerine kuruludur.</p>', 'iletisim@ramazanmizrak.av.tr', '+90 (212) 555 01 01', '+905550000000', 'https://linkedin.com/in/av-ramazan-mizrak', 'https://twitter.com/av-ramazan-mizrak', 'https://instagram.com/av-ramazan-mizrak')
 ON CONFLICT (id) DO NOTHING;
 
 -- 3. SEED ARTICLES
@@ -43,7 +43,7 @@ ON CONFLICT (id) DO NOTHING;
 
 -- 7. SEED SITE SETTINGS
 INSERT INTO settings (key, value, description, type) VALUES
-('site_title', 'Avukat Selim Aras Danışman | Hukuki Analizler', 'Site başlığı', 'string'),
+('site_title', 'Avukat Ramazan Mızrak | Hukuki Analizler', 'Site başlığı', 'string'),
 ('site_description', 'Miras, Şirketler ve Bilişim Hukuku alanında güncel makale ve analizler.', 'Site açıklaması', 'string'),
 ('office_address', 'Levent Mah. Yasemin Sokak, No:12/4 Beşiktaş, İstanbul', 'Ofis Adresi', 'string')
 ON CONFLICT (key) DO NOTHING;

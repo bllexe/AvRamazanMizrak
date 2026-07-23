@@ -6,23 +6,11 @@ import Link from 'next/link';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('admin@avdanisman.com');
-  const [password, setPassword] = useState('adminpassword');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  const handleEmailFocus = () => {
-    if (email === 'admin@avdanisman.com') {
-      setEmail('');
-    }
-  };
-
-  const handlePasswordFocus = () => {
-    if (password === 'adminpassword') {
-      setPassword('');
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,10 +71,9 @@ export default function AdminLoginPage() {
               className="w-full px-4 py-3 bg-[#FCFBFA] border border-[#DEDCD7] rounded-lg focus:ring-1 focus:ring-prestige-gold focus:border-prestige-gold hover:border-[#C4C1BA] transition-all outline-none text-sm"
               id="email"
               type="email"
-              placeholder="admin@avdanisman.com"
+              placeholder="eposta@adresiniz.com"
               required
               value={email}
-              onFocus={handleEmailFocus}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -102,7 +89,6 @@ export default function AdminLoginPage() {
                 placeholder="••••••••"
                 required
                 value={password}
-                onFocus={handlePasswordFocus}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button

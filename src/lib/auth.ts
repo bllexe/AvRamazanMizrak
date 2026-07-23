@@ -6,7 +6,6 @@ export async function isAdminAuthenticated(): Promise<boolean> {
   const token = cookieStore.get('admin_session')?.value;
 
   if (!token) return false;
-  if (token === 'local-admin-active') return true;
 
   if (supabase) {
     try {

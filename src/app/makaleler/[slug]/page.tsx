@@ -172,7 +172,11 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
               <div className="p-8 border border-stone-gray/40 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col md:flex-row items-center gap-8 rounded-xl shadow-sm">
                 <div className="w-32 h-32 shrink-0 rounded-full overflow-hidden border-2 border-prestige-gold relative">
                   <img
-                    src="/images/profil2.jpeg"
+                    src={
+                      author.image_url && !author.image_url.includes('lh3.googleusercontent.com')
+                        ? author.image_url
+                        : '/images/profil2.jpeg'
+                    }
                     alt={author.full_name || 'Av. Ramazan Mızrak'}
                     className="w-full h-full object-cover"
                   />

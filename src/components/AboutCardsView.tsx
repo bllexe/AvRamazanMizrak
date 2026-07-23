@@ -20,8 +20,11 @@ export default function AboutCardsView({ author, certifications }: AboutCardsVie
   // Tab state: default to 'biyografi' (no 'tum' tab)
   const [activeTab, setActiveTab] = useState<'biyografi' | 'uzmanlik' | 'egitim'>('biyografi');
 
-  // Using static profil2 image
-  const profilePhoto = '/images/profil2.jpeg';
+  // Profile image (dynamic from DB or fallback)
+  const profilePhoto =
+    author?.image_url && !author.image_url.includes('lh3.googleusercontent.com')
+      ? author.image_url
+      : '/images/profil2.jpeg';
 
   // Dynamic Profile Data from Database
   const fullName = author?.full_name || 'Av. Ramazan Mızrak';
